@@ -127,3 +127,8 @@ export async function getTeamForUser(userId: number) {
 
   return result?.teamMembers[0]?.team || null;
 }
+
+// get user role 
+export async function getRoleForUser(userId: number) {
+  return 'researcher';
+}
