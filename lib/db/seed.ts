@@ -49,6 +49,7 @@ async function seed() {
     .values([
       {
         email: email,
+        name: 'Rahil Verma',
         passwordHash: passwordHash,
         role: "owner",
       },
@@ -57,7 +58,7 @@ async function seed() {
 
   console.log('Initial user created.');
 
-  await createStripeProducts();
+  //await createStripeProducts();
 }
 
 seed()
