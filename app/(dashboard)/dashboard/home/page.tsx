@@ -9,5 +9,5 @@ export default async function SettingsPage() {
     redirect('/sign-in');
   }
 
-  return <Home user={user} />;
+  return <Home />;
 }
