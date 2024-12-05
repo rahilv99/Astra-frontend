@@ -18,7 +18,9 @@ import {
   validatedAction,
   validatedActionWithUser,
 } from '@/lib/auth/middleware';
+import { mock_getUserById, mock_getUserByEmail, mock_createUser, mock_deleteUserById} from '@/lib/db/mock_data';
 
+const useMockData = process.env.USE_MOCK_DATA === "TRUE";
 
 const signInSchema = z.object({
   email: z.string().email().min(3).max(255),
@@ -28,19 +30,22 @@ const signInSchema = z.object({
 export const signIn = validatedAction(signInSchema, async (data, formData) => {
   const { email, password } = data;
 
-  const user = await db
-    .select({
-      user: users
-    })
-    .from(users)
-    .where(eq(users.email, email))
-    .limit(1);
+  let user;
+  if (useMockData) {
+    user = mock_getUserByEmail(email);
+  } else {
+    user = await db
+      .select()
+      .from(users)
+      .where(eq(users.email, email))
+      .limit(1);
 
-  if (user.length === 0) {
-    return { error: 'Invalid email or password. Please try again.' };
+    if (user.length === 0) {
+      return { error: 'Invalid email or password. Please try again.' };
+    }
   }
 
-  const { user: foundUser } = user[0];
+  const foundUser = user[0];
 
   const isPasswordValid = await comparePasswords(
     password,
@@ -73,12 +78,16 @@ const signUpSchema = z.object({
 export const signUp = validatedAction(signUpSchema, async (data, formData) => {
   const { email, password, inviteId } = data;
 
-  const existingUser = await db
-    .select()
-    .from(users)
-    .where(eq(users.email, email))
-    .limit(1);
-
+  let existingUser;
+  if (useMockData) {
+    existingUser = mock_getUserByEmail(email);
+  } else {
+    existingUser = await db
+      .select()
+      .from(users)
+      .where(eq(users.email, email))
+      .limit(1);
+  }
   if (existingUser.length > 0) {
     return { error: 'An account with this email already exists. Please try again.' };
   }
@@ -91,7 +100,12 @@ export const signUp = validatedAction(signUpSchema, async (data, formData) => {
     role: 'other', // Default role, will be overridden in onboarding
   };
 
-  const [createdUser] = await db.insert(users).values(newUser).returning();
+  let createdUser
+  if (useMockData) {
+    [createdUser] = mock_createUser(newUser);
+  } else {
+    [createdUser] = await db.insert(users).values(newUser).returning();
+  }
 
   if (!createdUser) {
     return { error: 'Failed to create user. Please try again.' };
@@ -173,7 +187,11 @@ export const deleteAccount = validatedActionWithUser(
     }
 
     // Hard delete
-    await db.delete(users).where(eq(users.id, user.id));
+    if (useMockData) {
+      mock_deleteUserById(user.id);
+    } else {
+      await db.delete(users).where(eq(users.id, user.id));
+    }
 
     (await cookies()).delete('session');
     redirect('/sign-in');

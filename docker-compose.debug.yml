@@ -13,11 +13,13 @@ services:
     depends_on:
       - db
     working_dir: /app
+    env_file:
+      - .env
     command: >
       bash -c "
       npm install &&
-      npm run db:migrate &&
       if [ $DO_SEEDING = TRUE ]; then
+        npm run db:migrate &&
         npm run db:seed
       fi &&
       npm run dev
