@@ -1,12 +1,13 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { redirect } from 'next/navigation';
+import { Activity } from './activity';
+import { getUser } from '@/lib/db/queries';
 
-export default async function ActivityPage() {
+export default async function SettingsPage() {
+  const user = await getUser();
 
-  return (
-    <section className="flex-1 p-4 lg:p-8">
-      <h1 className="text-lg lg:text-2xl font-medium text-gray-900 mb-6">
-        Podcast History
-      </h1>
-    </section>
-  );
+  if (!user) {
+    redirect('/sign-in');
+  }
+
+  return <Activity />;
 }

@@ -1,4 +1,4 @@
-import { CalendarDays, Mic2, Settings, Calendar } from 'lucide-react'
+import { CalendarDays, Mic2, Settings, Calendar, BarChart2 } from 'lucide-react'
 import Link from 'next/link'
 
 function ActionLink({ href, icon: Icon, children }: { href: string; icon: React.ElementType; children: React.ReactNode }) {
@@ -15,11 +15,11 @@ function ActionLink({ href, icon: Icon, children }: { href: string; icon: React.
 
 export function Home() {
   // In a real application, you would fetch this data from your backend
-  const userName = "Rahil"
+  const userName = "Alex"
   const daysUntilNextPodcast = 3
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 to-blue-600 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-black to-blue-600 flex items-center justify-center px-4">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold text-white tracking-tight sm:text-5xl">
@@ -43,17 +43,24 @@ export function Home() {
             </div>
             <CalendarDays className="h-10 w-10 text-blue-300" />
           </div>
+          <div className="mt-6 border-t border-blue-500 pt-4">
+            <p className="text-blue-200">Your next AI-generated podcast is coming soon! Tailored to your interests and ready for your enjoyment.</p>
+          </div>
         </div>
 
-        <div className="flex justify-center space-x-4">
-          <ActionLink href="/edit-interests" icon={Settings}>
+        <div className="flex flex-wrap justify-center gap-4">
+          <ActionLink href="/dashboard/edit-keywords" icon={Settings}>
             Edit Interests
           </ActionLink>
-          <ActionLink href="/change-podcast-day" icon={Calendar}>
+          <ActionLink href="/dashboard/edit-day" icon={Calendar}>
             Change Podcast Day
+          </ActionLink>
+          <ActionLink href="/dashboard/activity" icon={BarChart2}>
+            Activity
           </ActionLink>
         </div>
       </div>
     </div>
   )
 }
+

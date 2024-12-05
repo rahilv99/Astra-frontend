@@ -13,7 +13,7 @@ export function SubmitButton({ freePlan }: { freePlan?: boolean }) {
   const handleClick = () => {
     if (freePlan) {
       // add free plan to user data
-      redirect('/dashboard/home');
+      redirect('/dashboard');
     }
   };
 
