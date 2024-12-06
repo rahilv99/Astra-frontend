@@ -29,7 +29,7 @@ export default function AIPodcastDemo() {
             </p>
             <div className="p-4 flex items-center space-x-4">
               <audio controls className="w-full">
-                <source src="/path/to/your/audio/file.mp3" type="audio/mp3" />
+                <source src="podcast_v1.1.mp3" type="audio/mp3" />
                 Your browser does not support the audio element.
               </audio>
             </div>
@@ -93,15 +93,15 @@ function Step({ icon, title, content, direction, prompt }: StepProps) {
       <div
         className={`bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl shadow-lg p-6 ${
           isLeft ? "mr-8" : "ml-8"
-        } lg:w-80 md: w-70 sm: w-60 h-auto`}
+        } lg:w-80 md: w-70 sm: w-60 h-auto space-y-4`}
       >
         <div className="flex items-center space-x-4 mb-4">
-          <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-300 to-white rounded-full flex items-center justify-center text-white">
+          <div className="flex-shrink-0 w-12 h-12  bg-gradient-to-br from-blue-300 to-white rounded-full flex items-center justify-center text-white">
             {icon}
           </div>
           <h3 className="text-xl font-semibold text-white">{title}</h3>
         </div>
-        <p className="text-gray-200 bg-black bg-opacity-20 rounded-xl p-8 backdrop-filter backdrop-blur-lg">
+        <p className="text-gray-100 bg-white bg-opacity-10 rounded-xl p-4 backdrop-filter backdrop-blur-lg">
           {content}
         </p>
       </div>

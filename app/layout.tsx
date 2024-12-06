@@ -6,7 +6,7 @@ import { getUser } from '@/lib/db/queries';
 
 export const metadata: Metadata = {
   title: 'Astra',
-  description: 'More learning. Less time.',
+  description: 'More learning. Less time.'
 };
 
 export const viewport: Viewport = {
