@@ -20,6 +20,8 @@ import {
 } from '@/lib/auth/middleware';
 import { mock_getUserById, mock_getUserByEmail, mock_createUser, mock_deleteUserById} from '@/lib/db/mock_data';
 
+// BACKEND - replace methods with database calls
+
 const useMockData = process.env.USE_MOCK_DATA === "TRUE";
 
 const signInSchema = z.object({
@@ -66,7 +68,7 @@ export const signIn = validatedAction(signInSchema, async (data, formData) => {
     return createCheckoutSession({ priceId });
   }
 
-  redirect('/dashboard/home');
+  redirect('/dashboard');
 });
 
 const signUpSchema = z.object({

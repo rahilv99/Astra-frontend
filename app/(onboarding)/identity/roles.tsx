@@ -23,22 +23,21 @@ export  function Roles() {
 
   const handleSubmit = () => {
     console.log("Selected designations:", selected);
-    // You can replace this with an API call or other logic
+    // BACKEND - send the selected designations to database
 
-    // change based on identity (research vs student)
     redirect('/keywords');
   };
 
   return (
     <main>
-    <section className="py-16 bg-gray-50">
+    <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+              <h1 className="text-3xl font-bold text-white sm:text-4xl">
                 What brings you to Astra?
               </h1>
-              <p className="mt-4 text-base text-gray-500">
+              <p className="mt-4 text-base text-gray-300">
                 Select as many as apply.
               </p>
             </div>
@@ -49,7 +48,7 @@ export  function Roles() {
         <div className="flex flex-wrap gap-2">
             {designations.map((designation) => (
             <Button
-                className={`${selected.includes(designation) ? 'bg-gray-200 hover:bg-white border border-gray-500' : 'bg-white hover:bg-gray-200'} text-black rounded-full text-xl px-10 py-5 inline-flex items-center justify-center`}
+                className={`${selected.includes(designation) ? 'bg-blue-200 hover:bg-white border border-gray-500' : 'bg-white hover:bg-blue-200 border-gray-500'} text-black rounded-full text-xl px-10 py-5 inline-flex items-center justify-center`}
                 key={designation}
                 onClick={() => toggleSelection({ designation })}
                 variant={selected.includes(designation) ? "default" : "outline"}
@@ -59,9 +58,8 @@ export  function Roles() {
             ))}
         </div>
         <div className = 'flex justify-end py-5'>
-        <Button 
-        onClick={handleSubmit} className="mt-4">
-            Submit
+        <Button onClick={handleSubmit} className="mt-4 bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-blue-100 transition duration-300">
+          Submit
         </Button>
         </div>
     </div>

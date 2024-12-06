@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CircleIcon, Home, LogOut } from 'lucide-react';
+import { CircleIcon, Home, LogOut, Gem, Shield } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,6 +14,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useUser } from '@/lib/auth';
 import { signOut } from '@/app/(login)/actions';
 import { useRouter } from 'next/navigation';
+import { ActionLink } from '@/components/ui/action-link';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,23 +28,20 @@ function Header() {
   }
 
   return (
-    <header className="border-b border-gray-200">
+    <header >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <CircleIcon className="h-6 w-6 text-blue-300" />
-          <span className="ml-2 text-xl font-semibold text-gray-900">ASTRA</span>
+          <CircleIcon className="h-8 w-8 text-blue-300" />
+          <span className="ml-2 text-3xl font-semibold text-white">ASTRA</span>
         </Link>
         <div className="flex items-center space-x-4">
-          <Link
-            href="/pricing"
-            className="text-sm font-medium text-gray-700 hover:text-gray-900"
-          >
+        <ActionLink href="./pricing" icon={Gem}>
             Plans
-          </Link>
+          </ActionLink>
           {user ? (
             <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <DropdownMenuTrigger asChild>
-                <Avatar className="cursor-pointer size-9">
+                <Avatar className="cursor-pointer size-10">
                   <AvatarImage alt={user.name || ''} />
                   <AvatarFallback>
                     {user.email
@@ -60,6 +58,12 @@ function Header() {
                     <span>Home</span>
                   </Link>
                 </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  <Link href="/security" className="flex w-full items-center">
+                    <Shield className="mr-2 h-4 w-4" />
+                    <span>Security</span>
+                  </Link>
+                </DropdownMenuItem>
                 <form action={handleSignOut} className="w-full">
                   <button type="submit" className="flex w-full">
                     <DropdownMenuItem className="w-full flex-1 cursor-pointer">
@@ -73,9 +77,9 @@ function Header() {
           ) : (
             <Button
               asChild
-              className="bg-black hover:bg-gray-800 text-white text-sm px-4 py-2 rounded-full"
+              className="bg-white hover:bg-blue-100 text-blue-600 text-sm px-4 py-2 rounded-full transition duration-300"
             >
-              <Link href="/sign-up">Sign Up</Link>
+              <ActionLink href="/sign-up">Sign In</ActionLink>
             </Button>
           )}
         </div>
@@ -86,9 +90,12 @@ function Header() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <section className="flex flex-col min-h-screen">
-      <Header />
-      {children}
-    </section>
+    <div className="min-h-screen bg-gradient-to-br from-black to-blue-900">
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        {children}
+      </div>
+    </div>
   );
 }
+

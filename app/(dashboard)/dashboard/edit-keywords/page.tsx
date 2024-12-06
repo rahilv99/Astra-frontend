@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { EditInterests } from './keywords';
+import { EditKeywords } from './keywords';
 import { getUser } from '@/lib/db/queries';
 
 export default async function SettingsPage() {
@@ -9,5 +9,5 @@ export default async function SettingsPage() {
     redirect('/sign-in');
   }
 
-  return <EditInterests />;
+  return <EditKeywords />;
 }

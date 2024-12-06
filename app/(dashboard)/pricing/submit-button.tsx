@@ -22,7 +22,7 @@ export function SubmitButton({ freePlan }: { freePlan?: boolean }) {
       type="submit"
       disabled={pending}
       onClick={freePlan ? handleClick : undefined}
-      className="w-full bg-white hover:bg-gray-100 text-black border border-gray-200 rounded-full flex items-center justify-center"
+      className="w-full bg-white text-black border border-gray-200 rounded-full flex items-center justify-center hover:bg-blue-100 transition duration-300"
     >
       {pending ? (
       <>

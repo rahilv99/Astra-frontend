@@ -42,39 +42,39 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   return (
+    <div className="min-h-screen bg-gradient-to-br from-black to-blue-900">
     <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
-      <header className="border-b border-gray-200">
+      <header>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center">
-          <CircleIcon className="h-6 w-6 text-blue-300" />
-          <span className="ml-2 text-xl font-semibold text-gray-900">
-            Onboarding
-          </span>
+          <CircleIcon className="h-8 w-8 text-blue-300" />
+          <span className="ml-2 text-3xl text-white">Onboarding</span>
         </div>
       </header>
       <div className="flex-grow p-6 overflow-y-auto md:p-12">{children}</div>
       <section className="p-4 md:p-10 flex-shrink-0">
-        <div className="flex justify-center items-center h-full">
+        <div className="flex justify-center items-center h-full text-white">
           <Pagination>
             <PaginationContent>
               <PaginationItem>
-                <PaginationPrevious href="#" onClick={handlePreviousPage} />
+          <PaginationPrevious className="text-xl font-bold" href="#" onClick={handlePreviousPage} />
               </PaginationItem>
               <PaginationItem>
-                <PaginationLink href="/identity" onClick={() => setCurrentPage(1)}>1</PaginationLink>
+          <PaginationLink className="text-xl font-bold" href="/identity" onClick={() => setCurrentPage(1)}>1</PaginationLink>
               </PaginationItem>
               <PaginationItem>
-                <PaginationLink href="/keywords" onClick={() => setCurrentPage(2)}>2</PaginationLink>
+          <PaginationLink className="text-xl font-bold" href="/keywords" onClick={() => setCurrentPage(2)}>2</PaginationLink>
               </PaginationItem>
               <PaginationItem>
-                <PaginationLink href="/day" onClick={() => setCurrentPage(3)}>3</PaginationLink>
+          <PaginationLink className="text-xl font-bold" href="/day" onClick={() => setCurrentPage(3)}>3</PaginationLink>
               </PaginationItem>
               <PaginationItem>
-                <PaginationNext href="#" onClick={handleNextPage}/>
+          <PaginationNext className="text-xl font-bold" href="#" onClick={handleNextPage}/>
               </PaginationItem>
             </PaginationContent>
           </Pagination>
         </div>
       </section>
+    </div>
     </div>
   );
 }

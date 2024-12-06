@@ -5,77 +5,75 @@ import Link from 'next/link';
 export default function HomePage() {
   return (
     <main>
-      <section className="py-20">
+      <section className="py-20 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols lg:gap-8">
             <div className="text-center md:max-w-2xl md:mx-auto lg:col-span-6 ">
-              <h1 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl md:text-6xl">
+              <h1 className="text-4xl font-bold text-white tracking-tight sm:text-5xl md:text-6xl">
                 Astra.
                 <span className="block text-blue-300">Smarter Content</span>
               </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+              <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                 Spend less time searching and more time learning. Astra brings all the newest
                 advancements in your field to you.  
               </p>
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-center lg:mx-auto">
                 <Link
-                  href="https://vercel.com/templates/next.js/next-js-saas-starter"
-                  target="_blank"
+                  href="/demo"
+                  target='_blank'
                 >
-                  <Button className="bg-white hover:bg-gray-100 text-black border border-gray-200 rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
+                  <Button className="bg-blue-100 font-semibold hover:bg-gray-400 text-black rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
                     Demo
                   </Button>
                 </Link>
               </div>
             </div>
-
-
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white w-full">
+      <section className="py-16 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-3 lg:gap-8">
-            <div>
-              <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue-300 text-white">
+            <div className="bg-white bg-opacity-10 p-8 rounded-lg">
+                <div className="flex items-center justify-center h-12 w-12 rounded-md border-2 border-blue-300 text-blue-300">
                 <Database className="h-6 w-6" />
-              </div>
+                </div>
               <div className="mt-5">
-                <h2 className="text-lg font-medium text-gray-900">
-                  Data Sources
+                <h2 className="text-lg font-medium text-white">
+                  Premium Data
                 </h2>
-                <p className="mt-2 text-base text-gray-500">
-                  Astra aggregates the most recent publications, preprints, and news articles curated from 
-                  leading academic sources.
+                <p className="mt-2 text-base text-gray-300">
+                  Astra keeps track of all the latest publications, patents, and research updates in your field,
+                  so you can stay informed without the hassle.
                 </p>
               </div>
             </div>
 
-            <div className="mt-10 lg:mt-0">
-              <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue-300 text-white">
+            <div className="bg-white bg-opacity-10 p-8 rounded-lg mt-10 lg:mt-0">
+              <div className="flex items-center justify-center h-12 w-12 rounded-md border-2 border-blue-300 text-blue-300">
                 <Sparkles className="h-6 w-6" />
               </div>
               <div className="mt-5">
-                <h2 className="text-lg font-medium text-gray-900">
-                  Data Filtering
+                <h2 className="text-lg font-medium text-white">
+                  Personalized Feed
                 </h2>
-                <p className="mt-2 text-base text-gray-500">
-                  Astra uses advanced machine learning algorithms and natural language processing
-                  to ensure all the information you recieve is relevant and meaningful.
+                <p className="mt-2 text-base text-gray-300">
+                  Your personalized feed ensures that you only see the content that is most relevant to you,
+                  cutting out the noise and letting you focus on what matters.
                 </p>
               </div>
             </div>
 
-            <div className="mt-10 lg:mt-0">
-              <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue-300 text-white">
+            <div className="bg-white bg-opacity-10 p-8 rounded-lg mt-10 lg:mt-0">
+              <div className="flex items-center justify-center h-12 w-12 rounded-md border-2 border-blue-300 text-blue-300">
                 <Podcast className="h-6 w-6" />
               </div>
               <div className="mt-5">
-                <h2 className="text-lg font-medium text-gray-900">
+                <h2 className="text-lg font-medium text-white">
                   Podcast Generation
                 </h2>
-                <p className="mt-2 text-base text-gray-500">
+                <p className="mt-2 text-base text-gray-300">
                   Astra extracts only the most important information from the articles, generating engaging podcast 
                   episodes tailored specifically for you.
                 </p>
@@ -85,24 +83,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+              <h2 className="text-3xl font-bold text-white sm:text-4xl">
                 Curious? Sign up for our free plan.
               </h2>
-              <p className="mt-3 max-w-3xl text-lg text-gray-500">
+              <p className="mt-3 max-w-3xl text-lg text-gray-300">
                 Our free plan offers a taste of what Astra can do for you. Sign up today to 
-                recieve weekly updates on the latest advancements in your field, straight to your inbox. 
+                receive weekly updates on the latest advancements in your field, straight to your inbox. 
               </p>
             </div>
             <div className="mt-8 lg:mt-0 flex justify-center lg:justify-end">
               <Link
-                href = '/pricing'
+                href='/pricing'
                 target="_blank"
               >
-                <Button className="bg-white hover:bg-gray-100 text-black border border-gray-200 rounded-full text-xl px-12 py-6 inline-flex items-center justify-center">
+                <Button className="bg-white hover:bg-gray-400 text-black rounded-full text-xl px-12 py-6 inline-flex items-center justify-center">
                   View Plans
                   <ArrowRight className="ml-3 h-6 w-6" />
                 </Button>

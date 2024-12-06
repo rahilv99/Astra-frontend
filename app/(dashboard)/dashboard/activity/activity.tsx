@@ -1,71 +1,53 @@
-import Link from 'next/link'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChevronLeft } from 'lucide-react'
+import { AudioLines } from 'lucide-react'
+import  Link  from 'next/link'
 
-// This would typically come from your backend
-const pastPodcasts = [
+// BACKEND - Retrieve from database
+const podcastHistory = [
   {
     id: 1,
     title: "The Future of AI",
-    date: "2023-05-01",
-    keyPoints: [
-      "Advancements in natural language processing",
-      "Ethical considerations in AI development",
-      "AI's impact on job markets"
-    ]
+    date: "2023-05-15",
+    summary: "Exploring the latest advancements in artificial intelligence and their potential impact on society.",
+    link: "https://www.example.com/podcast-1"
   },
   {
     id: 2,
     title: "Sustainable Energy Solutions",
-    date: "2023-04-24",
-    keyPoints: [
-      "Breakthroughs in solar panel efficiency",
-      "The role of hydrogen in clean energy",
-      "Challenges in grid modernization"
-    ]
+    date: "2023-05-22",
+    summary: "Discussing innovative approaches to renewable energy and their role in combating climate change.",
+    link: "https://www.example.com/podcast-1"
   },
   {
     id: 3,
-    title: "The Rise of Decentralized Finance",
-    date: "2023-04-17",
-    keyPoints: [
-      "Understanding blockchain technology",
-      "DeFi's potential to disrupt traditional banking",
-      "Regulatory challenges in the crypto space"
-    ]
-  }
+    title: "The Art of Mindfulness",
+    date: "2023-05-29",
+    summary: "Delving into mindfulness practices and their benefits for mental health and overall well-being.",
+    link: "https://www.example.com/podcast-1"
+  },
 ]
 
 export function Activity() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 to-blue-600 p-6">
-      <div className="max-w-4xl mx-auto">
-        <Link 
-          href="/"
-          className="inline-flex items-center text-white hover:text-blue-200 mb-6"
-        >
-          <ChevronLeft className="h-5 w-5 mr-1" />
-          Back to Home
-        </Link>
-        <h1 className="text-3xl font-bold text-white mb-6">Your Podcast Activity</h1>
-        <div className="space-y-6">
-          {pastPodcasts.map((podcast) => (
-            <Card key={podcast.id}>
-              <CardHeader>
-                <CardTitle>{podcast.title}</CardTitle>
-                <CardDescription>{new Date(podcast.date).toLocaleDateString()}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <h3 className="font-semibold mb-2">Key Points:</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  {podcast.keyPoints.map((point, index) => (
-                    <li key={index}>{point}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+    <div className="max-w-3xl mx-auto">
+      <h1 className="text-3xl font-semibold text-white mb-8">Your Podcast History</h1>
+      <div className="space-y-6">
+        {podcastHistory.map((podcast) => (
+          <div 
+            key={podcast.id} 
+            className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 ease-in-out hover:bg-opacity-20 hover:shadow-lg"
+          >
+            <div className="p-6">
+              <div className='flex justify-between items-center'>
+                <h2 className="text-xl font-semibold text-white mb-2">{podcast.title}</h2>
+                <Link href={podcast.link}>
+                  <AudioLines className="h-10 w-10 text-blue-200 hover:text-blue-800" />
+                </Link>
+              </div>
+              <p className="text-sm text-blue-200 mb-3">{podcast.date}</p>
+              <p className="text-gray-300">{podcast.summary}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   )
