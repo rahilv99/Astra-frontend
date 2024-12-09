@@ -31,7 +31,7 @@ function Header() {
     <header >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <CircleIcon className="h-8 w-8 text-blue-300" />
+          <CircleIcon className="h-8 w-8 text-cyan-200" />
           <span className="ml-2 text-3xl font-semibold text-white">ASTRA</span>
         </Link>
         <div className="flex items-center space-x-4">
@@ -77,7 +77,7 @@ function Header() {
           ) : (
             <Button
               asChild
-              className="bg-white hover:bg-blue-100 text-blue-600 text-sm px-4 py-2 rounded-full transition duration-300"
+              className="bg-white hover:bg-cyan-100 text-cyan-600 text-sm px-4 py-2 rounded-full transition duration-300"
             >
               <ActionLink href="/sign-up">Sign In</ActionLink>
             </Button>
@@ -90,7 +90,7 @@ function Header() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black to-blue-900">
+    <div className="min-h-screen bg-gradient-to-br from-black to-cyan-900">
       <div className="flex flex-col min-h-screen">
         <Header />
         {children}

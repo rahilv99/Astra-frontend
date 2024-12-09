@@ -42,11 +42,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black to-blue-900">
+    <div className="min-h-screen bg-gradient-to-br from-black to-cyan-900">
     <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
       <header>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center">
-          <CircleIcon className="h-8 w-8 text-blue-300" />
+          <CircleIcon className="h-8 w-8 text-cyan-300" />
           <span className="ml-2 text-3xl text-white">Onboarding</span>
         </div>
       </header>

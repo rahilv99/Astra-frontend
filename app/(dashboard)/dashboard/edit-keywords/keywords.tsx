@@ -33,7 +33,7 @@ export function EditKeywords() {
           <h1 className="text-4xl font-extrabold text-white tracking-tight sm:text-5xl">
             Hello {userName}
           </h1>
-          <p className="mt-3 text-lg text-blue-200">
+          <p className="mt-3 text-lg text-cyan-200">
             Your interests help us personalize your experience.
           </p>
         </div>
@@ -78,7 +78,7 @@ function AddKeyword({ value, onChange, onAdd }: { value: string; onChange: (e: R
         onChange={onChange}
         onKeyPress={(e) => e.key === 'Enter' && onAdd()}
         placeholder="Add keyword"
-        className="bg-white text-black px-3 py-1 rounded-full pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="bg-white text-black px-3 py-1 rounded-full pr-8 focus:outline-none focus:ring-2 focus:ring-cyan-500"
       />
       <button
         onClick={onAdd}

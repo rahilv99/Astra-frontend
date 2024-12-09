@@ -11,18 +11,15 @@ export default function HomePage() {
             <div className="text-center md:max-w-2xl md:mx-auto lg:col-span-6 ">
               <h1 className="text-4xl font-bold text-white tracking-tight sm:text-5xl md:text-6xl">
                 Astra.
-                <span className="block text-blue-300">Smarter Content</span>
+                <span className="block text-cyan-200">Smarter Content</span>
               </h1>
               <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                 Spend less time searching and more time learning. Astra brings all the newest
                 advancements in your field to you.  
               </p>
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-center lg:mx-auto">
-                <Link
-                  href="/demo"
-                  target='_blank'
-                >
-                  <Button className="bg-blue-100 font-semibold hover:bg-gray-400 text-black rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
+                <Link href="/demo">
+                  <Button className="bg-cyan-100 font-semibold hover:bg-gray-400 text-black rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
                     Demo
                   </Button>
                 </Link>
@@ -36,7 +33,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-3 lg:gap-8">
             <div className="bg-white bg-opacity-10 p-8 rounded-lg">
-                <div className="flex items-center justify-center h-12 w-12 rounded-md border-2 border-blue-300 text-blue-300">
+                <div className="flex items-center justify-center h-12 w-12 rounded-md border-2 border-cyan-200 text-cyan-200">
                 <Database className="h-6 w-6" />
                 </div>
               <div className="mt-5">
@@ -51,7 +48,7 @@ export default function HomePage() {
             </div>
 
             <div className="bg-white bg-opacity-10 p-8 rounded-lg mt-10 lg:mt-0">
-              <div className="flex items-center justify-center h-12 w-12 rounded-md border-2 border-blue-300 text-blue-300">
+              <div className="flex items-center justify-center h-12 w-12 rounded-md border-2 border-cyan-200 text-cyan-200">
                 <Sparkles className="h-6 w-6" />
               </div>
               <div className="mt-5">
@@ -66,7 +63,7 @@ export default function HomePage() {
             </div>
 
             <div className="bg-white bg-opacity-10 p-8 rounded-lg mt-10 lg:mt-0">
-              <div className="flex items-center justify-center h-12 w-12 rounded-md border-2 border-blue-300 text-blue-300">
+              <div className="flex items-center justify-center h-12 w-12 rounded-md border-2 border-cyan-200 text-cyan-200">
                 <Podcast className="h-6 w-6" />
               </div>
               <div className="mt-5">

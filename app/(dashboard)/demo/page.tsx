@@ -13,23 +13,23 @@ import {
 export default function AIPodcastDemo() {
     const PodcastPlayer = () => {
         return (
-            <div className="relative z-10 bg-gradient-to-r from-blue-200 to-blue-100 rounded-xl shadow-lg p-6 mx-auto max-w-2xl">
+            <div className="relative z-10 bg-white bg-opacity-5 backdrop-filter backdrop-blur-lg rounded-xl shadow-lg p-6 mx-auto max-w-2xl">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                <AudioLines className="w-6 h-6 text-black" />
+                <AudioLines className="w-6 h-6 text-gray-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">
+              <h3 className="text-2xl font-bold text-gray-400">
                 The Importance of Data in Generative AI
               </h3>
             </div>
-            <p className="text-gray-700 mb-6">
+            <p className="text-gray-100 mb-6">
                 In this episode, we explore publications and news articles discussing the critical role of data in practical use cases
                 of generative AI models. It becomes clear that while generative AI has shown remarkable progress in general purpose applications,
                 hallucination and bias from training data remain significant challenges that limit the refinement of generative models into professional agents.
             </p>
             <div className="p-4 flex items-center space-x-4">
               <audio controls className="w-full">
-                <source src="podcast_v1.1.mp3" type="audio/mp3" />
+                <source src="podcast_v2.1.wav" type="audio/wav" />
                 Your browser does not support the audio element.
               </audio>
             </div>
@@ -96,7 +96,7 @@ function Step({ icon, title, content, direction, prompt }: StepProps) {
         } lg:w-80 md: w-70 sm: w-60 h-auto space-y-4`}
       >
         <div className="flex items-center space-x-4 mb-4">
-          <div className="flex-shrink-0 w-12 h-12  bg-gradient-to-br from-blue-300 to-white rounded-full flex items-center justify-center text-white">
+          <div className="flex-shrink-0 w-12 h-12  bg-gradient-to-br from-cyan-900 to-cyan-400 rounded-full flex items-center justify-center text-white">
             {icon}
           </div>
           <h3 className="text-xl font-semibold text-white">{title}</h3>
@@ -108,18 +108,18 @@ function Step({ icon, title, content, direction, prompt }: StepProps) {
       <div
         className={`absolute ${
           isLeft ? "-right-3" : "-left-3"
-        } top-1/2 transform -translate-y-1/2 lg:w-80 md:w-70  sm: w-60 h-auto bg-gradient-to-br from-blue-200 to-white rounded-xl shadow-md p-4`}
+        } top-1/2 transform -translate-y-1/2 lg:w-80 md:w-70  sm: w-60 h-auto bg-gradient-to-br from-cyan-900 to-black rounded-xl shadow-md p-4`}
       >
         <div className="flex items-center justify-center space-x-3">
           {isLeft ? (
             <>
-              <p className="text-black">{prompt}</p>
-              <CircleIcon className="h-12 w-12 text-blue-300" />
+              <p className="text-gray-200">{prompt}</p>
+              <CircleIcon className="h-12 w-12 text-cyan-200" />
             </>
           ) : (
             <>
-              <CircleIcon className="h-12 w-12 text-blue-300" />
-              <p className="text-black">{prompt}</p>
+              <CircleIcon className="h-12 w-12 text-cyan-200" />
+              <p className="text-gray-200">{prompt}</p>
             </>
           )}
         </div>

@@ -52,7 +52,7 @@ export function Interests({ role = 'researcher' }: { role? : 'researcher' | 'stu
 
             </div>
             <div className = 'flex justify-end py-5'>
-            <Button onClick={handleSubmit} className="mt-4 bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-blue-100 transition duration-300">
+            <Button onClick={handleSubmit} className="mt-4 bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-cyan-100 transition duration-300">
               Submit
             </Button>
             </div>

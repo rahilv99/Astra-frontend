@@ -48,7 +48,7 @@ export  function Roles() {
         <div className="flex flex-wrap gap-2">
             {designations.map((designation) => (
             <Button
-                className={`${selected.includes(designation) ? 'bg-blue-200 hover:bg-white border border-gray-500' : 'bg-white hover:bg-blue-200 border-gray-500'} text-black rounded-full text-xl px-10 py-5 inline-flex items-center justify-center`}
+                className={`${selected.includes(designation) ? 'bg-cyan-200 hover:bg-white border border-gray-500' : 'bg-white hover:bg-cyan-200 border-gray-500'} text-black rounded-full text-xl px-10 py-5 inline-flex items-center justify-center`}
                 key={designation}
                 onClick={() => toggleSelection({ designation })}
                 variant={selected.includes(designation) ? "default" : "outline"}
@@ -58,7 +58,7 @@ export  function Roles() {
             ))}
         </div>
         <div className = 'flex justify-end py-5'>
-        <Button onClick={handleSubmit} className="mt-4 bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-blue-100 transition duration-300">
+        <Button onClick={handleSubmit} className="mt-4 bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-cyan-100 transition duration-300">
           Submit
         </Button>
         </div>

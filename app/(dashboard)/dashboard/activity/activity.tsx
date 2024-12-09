@@ -40,10 +40,10 @@ export function Activity() {
               <div className='flex justify-between items-center'>
                 <h2 className="text-xl font-semibold text-white mb-2">{podcast.title}</h2>
                 <Link href={podcast.link}>
-                  <AudioLines className="h-10 w-10 text-blue-200 hover:text-blue-800" />
+                  <AudioLines className="h-10 w-10 text-cyan-200 hover:text-cyan-800" />
                 </Link>
               </div>
-              <p className="text-sm text-blue-200 mb-3">{podcast.date}</p>
+              <p className="text-sm text-cyan-200 mb-3">{podcast.date}</p>
               <p className="text-gray-300">{podcast.summary}</p>
             </div>
           </div>

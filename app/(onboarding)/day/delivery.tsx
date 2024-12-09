@@ -90,12 +90,12 @@ export function Delivery() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="bg-white bg-opacity-10 rounded-3xl backdrop-filter backdrop-blur-lg text-white border-none hover:bg-blue-100 transition duration-300"/>
-                <CarouselNext className="bg-white bg-opacity-10 rounded-3xl backdrop-filter backdrop-blur-lg text-white border-none hover:bg-blue-100 transition duration-300"/>
+                <CarouselPrevious className="bg-white bg-opacity-10 rounded-3xl backdrop-filter backdrop-blur-lg text-white border-none hover:bg-cyan-100 transition duration-300"/>
+                <CarouselNext className="bg-white bg-opacity-10 rounded-3xl backdrop-filter backdrop-blur-lg text-white border-none hover:bg-cyan-100 transition duration-300"/>
               </Carousel>
             </div>
             <div className="flex justify-end py-5">
-              <Button onClick={handleSubmit} className="mt-4 bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-blue-100 transition duration-300">
+              <Button onClick={handleSubmit} className="mt-4 bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-cyan-100 transition duration-300">
                 Submit
               </Button>
             </div>
