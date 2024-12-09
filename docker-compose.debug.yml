@@ -18,3 +18,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 volumes:
   postgres_data:
+
+
+# frontend dependency: npm install framer-motion
+# might be some for the sliding animation in select day

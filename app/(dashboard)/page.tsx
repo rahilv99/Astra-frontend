@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, Database, Podcast } from 'lucide-react';
+import { ArrowRight , Database, Podcast, Fingerprint } from 'lucide-react';
 import Link from 'next/link';
 
 export default function HomePage() {
@@ -42,14 +42,14 @@ export default function HomePage() {
                 </h2>
                 <p className="mt-2 text-base text-gray-300">
                   Astra keeps track of all the latest publications, patents, and research updates in your field,
-                  so you can stay informed without the hassle.
+                  keeping you informed without ever lifting a finger.
                 </p>
               </div>
             </div>
 
             <div className="bg-white bg-opacity-10 p-8 rounded-lg mt-10 lg:mt-0">
               <div className="flex items-center justify-center h-12 w-12 rounded-md border-2 border-cyan-200 text-cyan-200">
-                <Sparkles className="h-6 w-6" />
+                <Fingerprint className="h-6 w-6" />
               </div>
               <div className="mt-5">
                 <h2 className="text-lg font-medium text-white">
@@ -72,7 +72,7 @@ export default function HomePage() {
                 </h2>
                 <p className="mt-2 text-base text-gray-300">
                   Astra extracts only the most important information from the articles, generating engaging podcast 
-                  episodes tailored specifically for you.
+                  episodes with our personable hosts.
                 </p>
               </div>
             </div>

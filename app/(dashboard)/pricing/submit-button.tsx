@@ -31,7 +31,7 @@ export function SubmitButton({ freePlan }: { freePlan?: boolean }) {
       </>
       ) : (
       <>
-        {freePlan ? "Continue" : "Submit"}
+        {freePlan ? "Continue" : "Upgrade"}
         <ArrowRight className="ml-2 h-4 w-4" />
       </>
       )}

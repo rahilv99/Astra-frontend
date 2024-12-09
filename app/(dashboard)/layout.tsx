@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CircleIcon, Home, LogOut, Gem, Shield } from 'lucide-react';
+import { CircleIcon, Home, LogOut, Gem, Shield, HeartHandshake } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,12 +29,15 @@ function Header() {
 
   return (
     <header >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-2 lg:px-8 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <CircleIcon className="h-8 w-8 text-cyan-200" />
           <span className="ml-2 text-3xl font-semibold text-white">ASTRA</span>
         </Link>
         <div className="flex items-center space-x-4">
+        <ActionLink href="./mission" icon={HeartHandshake}>
+            Mission
+          </ActionLink>
         <ActionLink href="./pricing" icon={Gem}>
             Plans
           </ActionLink>

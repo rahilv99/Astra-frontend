@@ -28,9 +28,9 @@ export default async function PricingPage() {
           price={0}
           interval={'month'}
           features={[
-            'Weekly ~5 minute podcast',
-            'Base voice models',
-            'Direct email access',
+            'Weekly 3-5 minute podcast',
+            'Single host conversation',
+            'Direct email delivery',
           ]}
           isFreePlan = {true}
         />
@@ -40,21 +40,21 @@ export default async function PricingPage() {
           interval={plusPrice?.interval || 'month'}
           trialDays={plusPrice?.trialPeriodDays || 7}
           features={[
-            '2 podcasts per week',
-            'Cutting-edge voice models',
-            'Higher customization options',
+            'Weekly 6-10 minute podcast',
+            'Single host conversation',
+            'Direct email delivery',
           ]}
           priceId={plusPrice?.id}
         />
         <PricingCard
           name={proPlan?.name || 'Pro'}
-          price={proPrice?.unitAmount || 1200}
+          price={proPrice?.unitAmount || 9000}
           interval={proPrice?.interval || 'month'}
           trialDays={proPrice?.trialPeriodDays || 7}
           features={[
-            'Daily podcasts',
-            'Customizable voices',
-            'Access to more data sources',
+            'Weekly 6-10 minute podcast',
+            'Multi-host conversation',
+            'Includes proprietary data sources',
           ]}
           priceId={proPrice?.id}
         />
@@ -99,7 +99,7 @@ function PricingCard({
         <ul className="space-y-4 mb-8">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start">
-              <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+              <Check className="h-5 w-5 text-cyan-300 mr-2 mt-0.5 flex-shrink-0" />
               <span className="text-gray-300">{feature}</span>
             </li>
           ))}
