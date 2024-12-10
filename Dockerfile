@@ -11,6 +11,8 @@ WORKDIR /app
 
 # Install dependencies
 #RUN npm install --production
+# might be some for the sliding animation in select day
+RUN npm install framer-motion
 
 # Copy the rest of the application code
 #COPY . .
