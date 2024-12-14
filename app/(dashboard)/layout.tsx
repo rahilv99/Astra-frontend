@@ -15,6 +15,8 @@ import { useUser } from '@/lib/auth';
 import { signOut } from '@/app/(login)/actions';
 import { useRouter } from 'next/navigation';
 import { ActionLink } from '@/components/ui/action-link';
+import { Footer } from '@/components/ui/Footer';
+import { Toaster } from 'react-hot-toast';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,9 +37,6 @@ function Header() {
           <span className="ml-2 text-3xl font-semibold text-white">ASTRA</span>
         </Link>
         <div className="flex items-center space-x-4">
-        <ActionLink href="./mission" icon={HeartHandshake}>
-            Mission
-          </ActionLink>
         <ActionLink href="./pricing" icon={Gem}>
             Plans
           </ActionLink>
@@ -67,7 +66,7 @@ function Header() {
                     <span>Security</span>
                   </Link>
                 </DropdownMenuItem>
-                <form action={handleSignOut} className="w-full">
+                <form onSubmit={handleSignOut} className="w-full">
                   <button type="submit" className="flex w-full">
                     <DropdownMenuItem className="w-full flex-1 cursor-pointer">
                       <LogOut className="mr-2 h-4 w-4" />
@@ -93,11 +92,13 @@ function Header() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black to-cyan-900">
-      <div className="flex flex-col min-h-screen">
-        <Header />
+    <div className="min-h-screen bg-gradient-to-br from-black to-cyan-900 flex flex-col">
+      <Header />
+      <main className="flex-grow">
         {children}
-      </div>
+        <Toaster />
+      </main>
+      <Footer />
     </div>
   );
 }
