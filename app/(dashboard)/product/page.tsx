@@ -11,8 +11,20 @@ const products = [
     id: 'astraResearch',
     name: 'astraResearch',
     tagline: 'The Best Morning Routine Since Coffee',
-    description: 'AstraResearch creates a personalized weekly podcast summarizing the latest updates in your field. All content includes citations to academic sources.',
-    demo: '/demo/research'
+    description: 'AstraResearch helps professionals and students stay up-to-date with the latest research in their field.',
+    subProducts: [
+      {
+        id: 'updates',
+        name: 'Updates',
+        description: 'A personalized weekly podcast summarizing the latest updates in your field. All content includes citations to academic sources.',
+      },
+      {
+        id: 'journalClub',
+        name: 'Journal Club',
+        description: 'Want your weekly podcast to be about something in particular? Queue up scientific papers or topics, and get expert summaries and analysis.',
+      }
+    ],
+    demo: '/demo/research/updates'
   },
   {
     id: 'astraNews',
@@ -25,7 +37,7 @@ const products = [
     id: 'astraNote',
     name: 'astraNote',
     tagline: 'Fuel your Curiosity',
-    description: "Do you have a growing list of things you're curious about? AstraNote transforms your notes app into an end-of-day podcast, researching so you don't have to. All content is sent directly to you, including citations.",
+    description: "Turn your notes app into a personalized end-of-day podcast, complete with research and citations delivered straight to you.",
     comingSoon: true
   }
 ]
@@ -70,10 +82,17 @@ export default function ProductsPage() {
                       <p className="text-xl mb-8 max-w-2xl mx-auto">
                         {product.description}
                       </p>
-                      {product.comingSoon ? (
+                      
+                      {product.subProducts ? (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                          {product.subProducts.map((subProduct) => (
+                            <div key={subProduct.id} className="bg-cyan-900/20 p-6 rounded-lg">
+                              <h3 className="text-2xl font-bold mb-4 text-cyan-200">{subProduct.name}</h3>
+                              <p className="text-lg mb-4">{subProduct.description}</p>
+                              {product.comingSoon ? (
                         <Button className="bg-cyan-100 font-semibold hover:bg-gray-400 text-black rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
-                        Coming Soon
-                      </Button>
+                          Coming Soon
+                        </Button>
                       ) : (
                         <Link href={product.demo || '/product'} passHref>
                           <Button className="bg-cyan-100 font-semibold hover:bg-gray-400 text-black rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
@@ -81,6 +100,25 @@ export default function ProductsPage() {
                           </Button>
                         </Link>
                       )}
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div>
+                        {product.comingSoon ? (
+                        <Button className="bg-cyan-100 font-semibold hover:bg-gray-400 text-black rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
+                          Coming Soon
+                        </Button>
+                      ) : (
+                        <Link href={product.demo || '/product'} passHref>
+                          <Button className="bg-cyan-100 font-semibold hover:bg-gray-400 text-black rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
+                            Demo
+                          </Button>
+                        </Link>
+                      )}
+                      </div>
+                      )}
+                      
                     </div>
                   )
               )}
@@ -91,3 +129,4 @@ export default function ProductsPage() {
     </div>
   );
 }
+

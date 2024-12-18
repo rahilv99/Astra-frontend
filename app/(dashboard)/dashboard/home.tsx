@@ -1,10 +1,13 @@
-import { CalendarDays, Brain, UserPen, Calendar, BarChart2 } from 'lucide-react'
+import { CalendarDays, Brain, PenIcon as UserPen, Calendar, BarChart2, Settings2 } from 'lucide-react'
 import { ActionLink } from '@/components/ui/action-link'
+import { Button } from "@/components/ui/button"
+import Link from 'next/link'
 
 export function Home() {
   // BACKEND - fetch this data from backend
   const userName = "Rahil"
   const daysUntilNextPodcast = 3
+  const upcomingPodcastType = "Journal Club" // This should be fetched from the backend
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
@@ -32,15 +35,22 @@ export function Home() {
             <CalendarDays className="h-10 w-10 text-cyan-200" />
           </div>
           <div className="mt-6 border-t border-cyan-200 pt-4">
-            <p className="text-cyan-200">Your next episode is coming soon! We're finding the best stories of the week 
-              tailored to your interests.</p>
+              <p className="text-gray-300 mb-4">You have a <span className="text-white font-bold">{upcomingPodcastType}</span> episode coming up! 
+              {upcomingPodcastType === "Updates" && (<p className="text-gray-300"> We're curating the best content tailored to your interests...</p>)}  
+              {upcomingPodcastType !== "Updates" && (
+                <p className="text-gray-300">We're curating expert opinions on your documents...</p>
+              )}
+              </p>
+              
+            <Link href="/dashboard/podcast-settings">
+              <Button className="w-full bg-cyan-200 text-gray-900 hover:bg-cyan-300">
+                <Settings2 className="mr-2 h-4 w-4" /> Podcast Preferences
+              </Button>
+            </Link>
           </div>
         </div>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <ActionLink href="/dashboard/edit-keywords" icon={UserPen}>
-            Edit Interests
-          </ActionLink>
           <ActionLink href="/dashboard/edit-day" icon={Calendar}>
             Change Podcast Day
           </ActionLink>

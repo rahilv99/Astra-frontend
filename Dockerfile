@@ -12,6 +12,7 @@ WORKDIR /app
 # Install dependencies
 #RUN npm install --production
 # might be some for the sliding animation in select day
+#npx shadcn@latest add select
 RUN npm install framer-motion
 RUN npm install react-hot-toast
 RUN npm install resend

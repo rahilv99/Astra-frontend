@@ -30,7 +30,7 @@ export function Activity() {
   return (
     <div className="max-w-3xl mx-auto">
       <h1 className="text-3xl font-semibold text-white mb-8">Your Podcast History</h1>
-      <div className="space-y-6">
+      <div className="space-y-6 pb-20">
         {podcastHistory.map((podcast) => (
           <div 
             key={podcast.id} 

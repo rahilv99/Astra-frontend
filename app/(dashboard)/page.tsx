@@ -18,9 +18,9 @@ export default function HomePage() {
                 advancements in your field to you.  
               </p>
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-center lg:mx-auto">
-                <Link href="/demo/research">
+                <Link href="/product">
                   <Button className="bg-cyan-100 font-semibold hover:bg-gray-400 text-black rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
-                    Demo
+                    Products
                   </Button>
                 </Link>
               </div>

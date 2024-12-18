@@ -16,7 +16,7 @@ import { signOut } from '@/app/(login)/actions';
 import { useRouter } from 'next/navigation';
 import { ActionLink } from '@/components/ui/action-link';
 import { Footer } from '@/components/ui/Footer';
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from '@/components/ui/toaster';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
