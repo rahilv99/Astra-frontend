@@ -17,14 +17,15 @@ const products = [
         id: 'updates',
         name: 'Updates',
         description: 'A personalized weekly podcast summarizing the latest updates in your field. All content includes citations to academic sources.',
+        demo: '/demo/research/updates'
       },
       {
         id: 'journalClub',
         name: 'Journal Club',
         description: 'Want your weekly podcast to be about something in particular? Queue up scientific papers or topics, and get expert summaries and analysis.',
+        demo: '/demo/research/journal-club'
       }
     ],
-    demo: '/demo/research/updates'
   },
   {
     id: 'astraNews',
@@ -94,7 +95,7 @@ export default function ProductsPage() {
                           Coming Soon
                         </Button>
                       ) : (
-                        <Link href={product.demo || '/product'} passHref>
+                        <Link href={subProduct.demo || '/product'} passHref>
                           <Button className="bg-cyan-100 font-semibold hover:bg-gray-400 text-black rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
                             Demo
                           </Button>
