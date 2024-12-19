@@ -28,33 +28,33 @@ export default async function PricingPage() {
           price={0}
           interval={'month'}
           features={[
-            'Weekly 3-5 minute podcast',
-            'Single host conversation',
+            'Weekly short podcast',
+            'Multi host conversation',
             'Direct email delivery',
           ]}
           isFreePlan = {true}
         />
         <PricingCard
           name={plusPlan?.name || 'Plus'}
-          price={plusPrice?.unitAmount || 300}
+          price={plusPrice?.unitAmount || 400}
           interval={plusPrice?.interval || 'month'}
           trialDays={plusPrice?.trialPeriodDays || 7}
           features={[
-            'Weekly 6-10 minute podcast',
-            'Single host conversation',
-            'Direct email delivery',
+            'Everything in base',
+            '2 long podcasts per week',
+            'Unlimited journal club access',
           ]}
           priceId={plusPrice?.id}
         />
         <PricingCard
           name={proPlan?.name || 'Pro'}
-          price={proPrice?.unitAmount || 9000}
+          price={proPrice?.unitAmount || 900}
           interval={proPrice?.interval || 'month'}
           trialDays={proPrice?.trialPeriodDays || 7}
           features={[
-            'Weekly 6-10 minute podcast',
-            'Multi-host conversation',
+            'Everything in Plus',
             'Includes proprietary data sources',
+            'Early access to AstraNote and AstraNews',
           ]}
           priceId={proPrice?.id}
         />

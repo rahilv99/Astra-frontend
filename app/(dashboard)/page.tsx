@@ -41,8 +41,8 @@ export default function HomePage() {
                   Premium Data
                 </h2>
                 <p className="mt-2 text-base text-gray-300">
-                  Astra keeps track of all the latest publications, patents, and research updates in your field,
-                  keeping you informed without ever lifting a finger.
+                  Astra tracks the latest breakthroughs, publications, and major events in your field,
+                  keeping you informed.
                 </p>
               </div>
             </div>
@@ -56,8 +56,8 @@ export default function HomePage() {
                   Personalized Feed
                 </h2>
                 <p className="mt-2 text-base text-gray-300">
-                  Your personalized feed ensures that you only see the content that is most relevant to you,
-                  cutting out the noise and letting you focus on what matters.
+                  Your personalized feed is curated with content that is most relevant to you,
+                  reducing informational overload.
                 </p>
               </div>
             </div>
@@ -71,7 +71,7 @@ export default function HomePage() {
                   Podcast Generation
                 </h2>
                 <p className="mt-2 text-base text-gray-300">
-                  Astra extracts only the most important information from the articles, generating engaging podcast 
+                  Astra extracts only the most important information, generating engaging podcast 
                   episodes with our personable hosts.
                 </p>
               </div>

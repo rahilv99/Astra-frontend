@@ -8,7 +8,7 @@ export async function sendApplication(name: string, email: string, position: str
   try {
     await resend.emails.send({
       from: 'careers@yourdomain.com',
-      to: 'rahil@astra.ai',
+      to: 'rahilv99@gmail.com',
       subject: `New Job Application: ${position}`,
       text: `
 Name: ${name}
@@ -16,7 +16,7 @@ Email: ${email}
 Position: ${position}
 
 Cover Letter:
-${message}
+${message}6
       `,
     })
   } catch (error) {

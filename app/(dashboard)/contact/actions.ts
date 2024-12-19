@@ -8,7 +8,7 @@ export async function sendContactForm({ subject, body }: { subject: string; body
   try {
     await resend.emails.send({
       from: 'contact@yourdomain.com', // CHANGE BEFORE DEPLOYING
-      to: 'rahil@astra.ai', // CHANGE BEFORE DEPLOYING
+      to: 'rahilv99@gmail.com', // CHANGE BEFORE DEPLOYING
       subject: `New Contact Form Submission: ${subject}`,
       text: body,
     })
