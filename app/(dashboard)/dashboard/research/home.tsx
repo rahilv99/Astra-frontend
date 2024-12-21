@@ -42,7 +42,7 @@ export function Home() {
               )}
               </p>
               
-            <Link href="/dashboard/podcast-settings">
+            <Link href="/dashboard/research/podcast-settings">
               <Button className="w-full bg-cyan-200 text-gray-900 hover:bg-cyan-300">
                 <Settings2 className="mr-2 h-4 w-4" /> Podcast Preferences
               </Button>
@@ -51,10 +51,10 @@ export function Home() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <ActionLink href="/dashboard/edit-day" icon={Calendar}>
+          <ActionLink href="/dashboard/research/edit-day" icon={Calendar}>
             Change Podcast Day
           </ActionLink>
-          <ActionLink href="/dashboard/activity" icon={BarChart2}>
+          <ActionLink href="/dashboard/research/activity" icon={BarChart2}>
             Activity
           </ActionLink>
         </div>

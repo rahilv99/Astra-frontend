@@ -77,7 +77,7 @@ export default function JournalClubPodcastWalkthrough() {
             <CardHeader>
               <CardTitle>Journal Club Podcast Setup</CardTitle>
               <CardDescription className="text-gray-200">
-                Follow the steps to set up your personalized AI podcast.
+                Follow the steps to set up your personalized podcast.
               </CardDescription>
             </CardHeader>
             <CardContent>

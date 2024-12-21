@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CircleIcon, Home, LogOut, Gem, Shield, HeartHandshake } from 'lucide-react';
+import { CircleIcon, ScrollText, LogOut, Gem, Shield, Atom } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -55,9 +55,15 @@ function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="flex flex-col gap-1">
                 <DropdownMenuItem className="cursor-pointer">
-                  <Link href="/dashboard" className="flex w-full items-center">
-                    <Home className="mr-2 h-4 w-4" />
-                    <span>Home</span>
+                  <Link href="/dashboard/research" className="flex w-full items-center">
+                    <Atom className="mr-2 h-4 w-4" />
+                    <span>Research</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  <Link href="/dashboard/note" className="flex w-full items-center">
+                    <ScrollText className="mr-2 h-4 w-4" />
+                    <span>Notes</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">

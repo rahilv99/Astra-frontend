@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Check, Upload, ArrowLeft, Pencil, Trash2, UserPen } from 'lucide-react'
+import { Check, Upload, ArrowLeft, Pencil, Trash2, PenIcon as UserPen } from 'lucide-react'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
@@ -14,6 +14,7 @@ import { Separator } from "@/components/ui/separator"
 import { useToast } from "@/hooks/use-toast"
 import { Switch } from "@/components/ui/switch"
 import { motion } from "framer-motion"
+import { useRouter } from 'next/navigation'
 
 export default function PodcastSettings() {
   const [podcastType, setPodcastType] = useState("updates")
@@ -23,6 +24,7 @@ export default function PodcastSettings() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [defaultType, setDefaultType] = useState("updates")
   const { toast } = useToast()
+  const router = useRouter()
 
   useEffect(() => {
     if (pdfQueue.length > 0 && defaultType === "updates") {
@@ -38,16 +40,16 @@ interface PdfFile {
 interface PdfUploadEvent extends React.ChangeEvent<HTMLInputElement> {}
 
 const handlePdfUpload = (event: PdfUploadEvent): void => {
-    const file = event.target.files?.[0];
-    if (file && pdfTitle) {
-        const newPdf: PdfFile = { title: pdfTitle, file: file.name };
-        setPdfQueue([...pdfQueue, newPdf]);
-        setPdfTitle("");
-        toast({
-            title: "PDF Uploaded",
-            description: `${file.name} has been added to the queue.`,
-        });
-    }
+  const file = event.target.files?.[0];
+  if (file && pdfTitle) {
+    const newPdf: PdfFile = { title: pdfTitle, file: file.name };
+    setPdfQueue(prevQueue => [...prevQueue, newPdf]);
+    setPdfTitle("");
+    toast({
+      title: "PDF Uploaded",
+      description: `${file.name} has been added to the queue.`,
+    });
+  }
 }
 
 interface EditPdfHandler {
@@ -108,13 +110,35 @@ const handleDefaultTypeChange_2 = (checked: boolean) => {
     });
 };
 
+const handleSavePodcastChanges = async () => {
+  // Mock data to send to the server
+  const mockData = {
+    podcastType,
+    defaultType,
+    pdfQueue
+  }
+
+  // Simulating a server request
+  await new Promise(resolve => setTimeout(resolve, 1000))
+
+  console.log('Sending data to server:', mockData)
+
+  toast({
+    title: "Settings Saved",
+    description: "Your podcast settings have been updated.",
+  })
+
+  // Navigate back to home
+  router.push('/dashboard/research')
+}
+
   return (
     <div className="min-h-screen text-white p-8">
       <Card className="max-w-4xl mx-auto bg-white bg-opacity-10 border-none">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="text-3xl font-bold text-cyan-200">Podcast Preferences</CardTitle>
-            <Link href="/dashboard">
+            <Link href="/dashboard/research">
               <Button variant="ghost" className="text-cyan-200 hover:text-white hover:bg-cyan-800">
                 <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
               </Button>
@@ -157,7 +181,7 @@ const handleDefaultTypeChange_2 = (checked: boolean) => {
                         />
                     <Label htmlFor="updates" className="text-white">Default</Label>
                 </div>
-              <Card className="bg-black bg-opacity-15 border-none">
+                <Card className="bg-black bg-opacity-15 border-none">
                 <CardHeader>
                   <CardTitle className="text-lg font-semibold text-cyan-200">Updates Podcast</CardTitle>
                 </CardHeader>
@@ -166,13 +190,16 @@ const handleDefaultTypeChange_2 = (checked: boolean) => {
                   A personalized weekly podcast summarizing the latest updates in your field. All content includes citations to academic sources.
                   </p>
                 </CardContent>
-              </Card>
+                </Card>
 
-              <Link href="/dashboard/interests">
+                <div className="h-4"></div>
+
+                <Link href="/dashboard/research/edit-keywords">
                 <Button className="bg-cyan-200 hover:bg-cyan-600 text-black">
                 <UserPen className="mr-2 h-4 w-4" /> Edit Interests
                 </Button>
-              </Link>
+                </Link>
+
             </TabsContent>
             <TabsContent value="journal-club" className="space-y-4">
                 
@@ -192,12 +219,13 @@ const handleDefaultTypeChange_2 = (checked: boolean) => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-300">
-                  Want your weekly podcast to be about something in particular? Queue up scientific papers or topics, and get expert summaries and analysis. After our analysis we'll look into the applications of the research in your field.
+                  Want your weekly podcast to be about something in particular? Queue up scientific papers or topics, and get expert summaries and analysis. 
                   </p>
                 </CardContent>
               </Card>
 
-              <Link href="/dashboard/interests">
+              <div className="h-4"></div>
+              <Link href="/dashboard/research/edit-keywords">
                 <Button className="bg-cyan-200 hover:bg-cyan-600 text-black">
                 <UserPen className="mr-2 h-4 w-4" /> Edit Interests
                 </Button>
@@ -244,7 +272,9 @@ const handleDefaultTypeChange_2 = (checked: boolean) => {
                       {pdfQueue.map((pdf, index) => (
                         <div key={index} className="flex items-center justify-between p-4">
                           <div className="flex-grow">
-                            <h4 className="text-sm font-medium text-white">{pdf.title}</h4>
+                            <h4 className="text-sm font-medium text-white">
+                              { `${index + 1}. `}{pdf.title}
+                            </h4>
                             <p className="text-sm text-gray-400">{pdf.file}</p>
                           </div>
                           <div className="flex space-x-2">
@@ -254,7 +284,7 @@ const handleDefaultTypeChange_2 = (checked: boolean) => {
                                   <Pencil className="h-4 w-4" />
                                 </Button>
                               </DialogTrigger>
-                              <DialogContent className="bg-gray-800 text-white">
+                              <DialogContent className="bg-gray-700 text-white">
                                 <DialogHeader>
                                   <DialogTitle className="text-cyan-200">Edit PDF Details</DialogTitle>
                                 </DialogHeader>
@@ -276,7 +306,7 @@ const handleDefaultTypeChange_2 = (checked: boolean) => {
                                     />
                                   </div>
                                   <Button 
-                                    className="w-full bg-cyan-600 hover:bg-cyan-700 text-white"
+                                    className="w-full bg-cyan-300 hover:bg-cyan-600 text-black"
                                     onClick={() => handleEditPdf(
                                       index,
                                       (document.getElementById('edit-title') as HTMLInputElement)?.value || '',
@@ -292,7 +322,6 @@ const handleDefaultTypeChange_2 = (checked: boolean) => {
                               <Trash2 className="h-4 w-4" />
                             </Button>
                           </div>
-                          {index < pdfQueue.length - 1 && <Separator className="my-2" />}
                         </div>
                       ))}
                     </ScrollArea>
@@ -302,7 +331,10 @@ const handleDefaultTypeChange_2 = (checked: boolean) => {
             </TabsContent>
           </Tabs>
 
-          <Button className="w-full bg-cyan-300 hover:bg-cyan-600 text-black">
+          <Button 
+            className="w-full bg-cyan-300 hover:bg-cyan-600 text-black"
+            onClick={handleSavePodcastChanges}
+          >
             <Check className="mr-2 h-4 w-4" /> Save Podcast Settings
           </Button>
         </CardContent>

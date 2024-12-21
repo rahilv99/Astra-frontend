@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { X, Plus } from 'lucide-react'
 import { Button } from "@/components/ui/button"
+import { redirect } from "next/navigation"
 
 export function EditKeywords() {
   // BACKEND - fetch keywords from backend
@@ -24,6 +25,7 @@ export function EditKeywords() {
   const handleSubmit = () => {
     console.log('Submitting keywords:', keywords)
     // BACKEND - send the keywords to database
+    redirect('/dashboard/research')
   }
 
   return (
@@ -49,7 +51,7 @@ export function EditKeywords() {
             onAdd={addKeyword}
           />
         </div>
-        <Button className="w-full" onClick={handleSubmit}>
+        <Button className="w-full bg-cyan-300 text-black hover:bg-cyan-600" onClick={handleSubmit}>
           Save Changes
         </Button>
       </div>

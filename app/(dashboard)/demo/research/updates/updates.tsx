@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Pagination } from "@/components/ui/pagination"
-import { AudioLines, BrainIcon, CalendarIcon, CircleIcon, Fingerprint, BadgeIcon as IdCard } from 'lucide-react'
+import { AudioLines, BrainCog, CircleIcon, Fingerprint, BadgeIcon as IdCard } from 'lucide-react'
 
 const steps = [
   {
@@ -22,10 +22,10 @@ const steps = [
     prompt: "Please share your role to help me understand your objectives.",
   },
   {
-    icon: <CalendarIcon className="w-8 h-8" />,
-    title: "Delivery",
-    content: "Ex: Monday",
-    prompt: "What day of the week do you want your podcast to be delivered?",
+    icon: <BrainCog className="w-6 h-6" />,
+    title: "Astra Analysis",
+    content: "Astra searches our database of academic articles",
+    prompt: "Astra is finding recent advances related to you and generating insights..."
   },
 ]
 
@@ -87,7 +87,7 @@ export default function AIPodcastWalkthrough() {
             <CardHeader>
               <CardTitle>Updates Podcast Setup</CardTitle>
               <CardDescription className="text-gray-200">
-                Follow the steps to set up your personalized AI podcast.
+                Follow the steps to set up your personalized podcast.
               </CardDescription>
             </CardHeader>
             <CardContent>

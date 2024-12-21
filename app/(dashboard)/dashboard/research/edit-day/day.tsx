@@ -42,7 +42,7 @@ export function EditDay() {
   const handleSubmit = () => {
     // BACKEND - replace with sending to database
     console.log("Selected day:", days[current]);
-    redirect("/pricing");
+    redirect("/dashboard/research");
   };
 
   return (

@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation';
 
 
 export  function Roles() {
-  const designations = ["Student", "Researcher", "Clinician", "Educator", "Hobbyist", "Other"];
+  const designations = ["Student", "Researcher", "Clinician", "Educator", "Professional", "Other"];
   const [selected, setSelected] = useState<string[]>([]);
 
   interface ToggleSelectionProps {
@@ -48,7 +48,7 @@ export  function Roles() {
         <div className="flex flex-wrap gap-2">
             {designations.map((designation) => (
             <Button
-                className={`${selected.includes(designation) ? 'bg-cyan-200 hover:bg-white border border-gray-500' : 'bg-white hover:bg-cyan-200 border-gray-500'} text-black rounded-full text-xl px-10 py-5 inline-flex items-center justify-center`}
+                className={`${selected.includes(designation) ? 'bg-gray-400 hover:bg-white border border-gray-500' : 'bg-white hover:bg-gray-400 border-gray-500'} text-black rounded-full text-xl px-10 py-5 inline-flex items-center justify-center`}
                 key={designation}
                 onClick={() => toggleSelection({ designation })}
                 variant={selected.includes(designation) ? "default" : "outline"}

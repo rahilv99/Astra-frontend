@@ -2,8 +2,6 @@ import { checkoutAction } from '@/lib/payments/actions';
 import { Check } from 'lucide-react';
 import { getStripePrices, getStripeProducts } from '@/lib/payments/stripe';
 import { SubmitButton } from './submit-button';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 
 // Prices are fresh for one hour max
 export const revalidate = 3600;
@@ -32,7 +30,7 @@ export default async function PricingPage() {
             'Multi host conversation',
             'Direct email delivery',
           ]}
-          isFreePlan = {true}
+          currentPlan = {true} /////// RETRIEVE FROM BACKEND
         />
         <PricingCard
           name={plusPlan?.name || 'Plus'}
@@ -40,11 +38,12 @@ export default async function PricingPage() {
           interval={plusPrice?.interval || 'month'}
           trialDays={plusPrice?.trialPeriodDays || 7}
           features={[
-            'Everything in base',
             '2 long podcasts per week',
             'Unlimited journal club access',
+            'Limited note access'
           ]}
           priceId={plusPrice?.id}
+          currentPlan = {false} /////// RETRIEVE FROM BACKEND
         />
         <PricingCard
           name={proPlan?.name || 'Pro'}
@@ -52,11 +51,12 @@ export default async function PricingPage() {
           interval={proPrice?.interval || 'month'}
           trialDays={proPrice?.trialPeriodDays || 7}
           features={[
-            'Everything in Plus',
-            'Includes proprietary data sources',
-            'Early access to AstraNote and AstraNews',
+            '3 long podcasts per week',
+            'Advanced note access',
+            'Early access to new features',
           ]}
           priceId={proPrice?.id}
+          currentPlan = {false} /////// RETRIEVE FROM BACKEND
         />
       </div>
     </main>
@@ -70,7 +70,7 @@ function PricingCard({
     trialDays,
     features,
     priceId,
-    isFreePlan,
+    currentPlan,
   }: {
     name: string;
     price: number;
@@ -78,7 +78,7 @@ function PricingCard({
     trialDays?: number;
     features: string[];
     priceId?: string;
-    isFreePlan?: boolean;
+    currentPlan?: boolean;
   }) {
     return (
       <div className="pt-6">
@@ -104,8 +104,8 @@ function PricingCard({
             </li>
           ))}
         </ul>
-        {isFreePlan ? (
-          <SubmitButton freePlan = {isFreePlan}/>
+        {currentPlan ? (
+          <SubmitButton currentPlan = {currentPlan}/>
         ) : (
           <form action={checkoutAction}>
             <input type="hidden" name="priceId" value={priceId} />

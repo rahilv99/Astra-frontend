@@ -6,14 +6,14 @@ import { useFormStatus } from 'react-dom';
 import { redirect } from 'next/navigation';
 
 
-export function SubmitButton({ freePlan }: { freePlan?: boolean }) {
+export function SubmitButton({ currentPlan }: { currentPlan?: boolean }) {
   const { pending } = useFormStatus();
 
 
   const handleClick = () => {
-    if (freePlan) {
+    if (currentPlan) {
       // add free plan to user data
-      redirect('/dashboard');
+      redirect('/dashboard/research');
     }
   };
 
@@ -21,7 +21,7 @@ export function SubmitButton({ freePlan }: { freePlan?: boolean }) {
     <Button
       type="submit"
       disabled={pending}
-      onClick={freePlan ? handleClick : undefined}
+      onClick={currentPlan ? handleClick : undefined}
       className="w-full bg-white text-black border border-gray-200 rounded-full flex items-center justify-center hover:bg-cyan-100 transition duration-300"
     >
       {pending ? (
@@ -31,7 +31,7 @@ export function SubmitButton({ freePlan }: { freePlan?: boolean }) {
       </>
       ) : (
       <>
-        {freePlan ? "Continue" : "Upgrade"}
+        {currentPlan ? "Continue" : "Upgrade"}
         <ArrowRight className="ml-2 h-4 w-4" />
       </>
       )}

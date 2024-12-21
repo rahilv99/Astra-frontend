@@ -55,9 +55,8 @@ export function Delivery() {
                     What day would you like your weekly podcast delivered?
                   </h1>
                   <p className="mt-4 text-base text-gray-200">
-                    Our paid plans offer longer and more frequent podcasts in
-                    addition to an array of great features. Change your plan
-                    anytime.
+                    Our free plan offers one short podcast per week.
+                    Upgrade your plan to get more podcasts and access to more features.
                   </p>
                 </div>
               </div>

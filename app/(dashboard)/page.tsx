@@ -53,10 +53,10 @@ export default function HomePage() {
               </div>
               <div className="mt-5">
                 <h2 className="text-lg font-medium text-white">
-                  Personalized Feed
+                  Personalized Content
                 </h2>
                 <p className="mt-2 text-base text-gray-300">
-                  Your personalized feed is curated with content that is most relevant to you,
+                  Your personalized content is curated with developments that are most relevant to you,
                   reducing informational overload.
                 </p>
               </div>
