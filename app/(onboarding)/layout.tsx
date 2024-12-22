@@ -46,13 +46,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
       <header>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center">
-          <CircleIcon className="h-8 w-8 text-cyan-300" />
-          <span className="ml-2 text-3xl text-white">Onboarding</span>
+          <CircleIcon className="h-8 w-8 text-gray-600" />
+          <span className="ml-2 text-3xl text-black">Onboarding</span>
         </div>
       </header>
       <div className="flex-grow p-6 overflow-y-auto md:p-12">{children}</div>
       <section className="p-4 md:p-10 flex-shrink-0">
-        <div className="flex justify-center items-center h-full text-white">
+        <div className="flex justify-center items-center h-full text-black">
           <Pagination>
             <PaginationContent>
               <PaginationItem>

@@ -22,7 +22,7 @@ const citations = [
 
 export function Citations() {
   return (
-    <Card className="w-full bg-white bg-opacity-10 text-white mt-6 border-none">
+    <Card className="w-full bg-black bg-opacity-10 text-black mt-6 border-none">
       <CardHeader>
         <CardTitle className="text-2xl">Learn More: Citations and Sources</CardTitle>
         <CardDescription className="text-gray-200">
@@ -35,10 +35,10 @@ export function Citations() {
             <li key={index} className="flex items-start space-x-2">
               <ExternalLink className="w-5 h-5 mt-1 flex-shrink-0" />
               <div>
-                <a href={citation.url} target="_blank" rel="noopener noreferrer" className="text-cyan-200 hover:underline">
+                <a href={citation.url} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:underline">
                   {citation.title}
                 </a>
-                <p className="text-sm text-gray-300">{citation.source}</p>
+                <p className="text-sm text-gray-700">{citation.source}</p>
               </div>
             </li>
           ))}

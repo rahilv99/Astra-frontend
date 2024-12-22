@@ -22,7 +22,7 @@ export function SubmitButton({ currentPlan }: { currentPlan?: boolean }) {
       type="submit"
       disabled={pending}
       onClick={currentPlan ? handleClick : undefined}
-      className="w-full bg-white text-black border border-gray-200 rounded-full flex items-center justify-center hover:bg-cyan-100 transition duration-300"
+      className="w-full bg-gray-300 text-black border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-500 transition duration-300"
     >
       {pending ? (
       <>

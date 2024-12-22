@@ -39,7 +39,7 @@ export default function AboutPage() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <Card className="border-none bg-opacity-10 bg-white text-gray-200 h-full">
+          <Card className="border-none bg-opacity-10 bg-black text-gray-200 h-full">
             <CardContent className="p-6">
               <div className="flex items-center space-x-4 mb-4">
                 <HandHeart className="h-10 w-10" />
@@ -57,7 +57,7 @@ export default function AboutPage() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <Card className="border-none bg-opacity-10 bg-white text-gray-200 h-full">
+          <Card className="border-none bg-opacity-10 bg-black text-gray-200 h-full">
             <CardContent className="p-6">
               <div className="flex items-center space-x-4 mb-4">
                 <Earth className="h-10 w-10" />
@@ -84,7 +84,7 @@ export default function AboutPage() {
           Join Us in Our Mission
         </motion.h2>
         <motion.button
-          className="bg-cyan-300 text-black font-bold py-3 px-8 rounded-full text-lg hover:bg-cyan-600 transition-all duration-300"
+          className="bg-gray-700 text-black font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-400 transition-all duration-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 2 }}

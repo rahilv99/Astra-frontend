@@ -33,59 +33,24 @@ function Header() {
     <header >
       <div className="max-w-7xl mx-auto px-4 sm:px-2 lg:px-8 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <CircleIcon className="h-8 w-8 text-cyan-200" />
-          <span className="ml-2 text-3xl font-semibold text-white">ASTRA</span>
+          <CircleIcon className="h-8 w-8 text-gray-700" />
+          <span className="ml-2 text-3xl font-semibold text-black">ASTRA</span>
         </Link>
-        <div className="flex items-center space-x-4">
-        <ActionLink href="./pricing" icon={Gem}>
+        <div className="flex items-center space-x-4 ">
+        <ActionLink href="/pricing" icon={Gem}>
             Plans
           </ActionLink>
           {user ? (
-            <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-              <DropdownMenuTrigger asChild>
-                <Avatar className="cursor-pointer size-10">
-                  <AvatarImage alt={user.name || ''} />
-                  <AvatarFallback>
-                    {user.email
-                      .split(' ')
-                      .map((n) => n[0])
-                      .join('')}
-                  </AvatarFallback>
-                </Avatar>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="flex flex-col gap-1">
-                <DropdownMenuItem className="cursor-pointer">
-                  <Link href="/dashboard/research" className="flex w-full items-center">
-                    <Atom className="mr-2 h-4 w-4" />
-                    <span>Research</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
-                  <Link href="/dashboard/note" className="flex w-full items-center">
-                    <ScrollText className="mr-2 h-4 w-4" />
-                    <span>Notes</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
-                  <Link href="/security" className="flex w-full items-center">
-                    <Shield className="mr-2 h-4 w-4" />
-                    <span>Security</span>
-                  </Link>
-                </DropdownMenuItem>
-                <form onSubmit={handleSignOut} className="w-full">
-                  <button type="submit" className="flex w-full">
-                    <DropdownMenuItem className="w-full flex-1 cursor-pointer">
-                      <LogOut className="mr-2 h-4 w-4" />
-                      <span>Sign out</span>
-                    </DropdownMenuItem>
-                  </button>
-                </form>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Button
+            asChild
+            className="bg-gray-500 hover:bg-gray-400 text-black text-sm px-4 py-2 rounded-full transition duration-300"
+          >
+            <ActionLink href="/dashboard/pulse">Dashboard</ActionLink>
+          </Button>
           ) : (
             <Button
               asChild
-              className="bg-white hover:bg-cyan-100 text-cyan-600 text-sm px-4 py-2 rounded-full transition duration-300"
+              className="bg-gray-500 hover:bg-gray-400 text-black text-sm px-4 py-2 rounded-full transition duration-300"
             >
               <ActionLink href="/sign-up">Sign In</ActionLink>
             </Button>
@@ -98,7 +63,7 @@ function Header() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black to-cyan-900 flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow">
         {children}

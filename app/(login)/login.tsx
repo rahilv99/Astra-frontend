@@ -21,12 +21,12 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
   );
 
   return (
-    <div className="min-h-[100dvh] flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-black to-cyan-900">
+    <div className="min-h-[100dvh] flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          <CircleIcon className="h-12 w-12 text-cyan-200" />
+          <CircleIcon className="h-12 w-12 text-gray-700" />
         </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-black">
           {mode === 'signin'
             ? 'Sign in to your account'
             : 'Create your account'}
@@ -41,7 +41,7 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
           <div>
             <Label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-200"
+              className="block text-sm font-medium text-gray-800"
             >
               Email
             </Label>
@@ -53,7 +53,7 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
                 autoComplete="email"
                 required
                 maxLength={50}
-                className="appearance-none rounded-full relative block w-full px-3 py-2 border border-gray-600 placeholder-gray-300 text-white bg-gray-800 focus:outline-none focus:ring-cyan-200 focus:border-cyan-200 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-full relative block w-full px-3 py-2 border border-gray-600 placeholder-gray-300 text-black bg-gray-300 focus:outline-none focus:ring-black focus:border-gray-800 focus:z-10 sm:text-sm"
                 placeholder="Enter your email"
               />
             </div>
@@ -62,7 +62,7 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
           <div>
             <Label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-200"
+              className="block text-sm font-medium text-gray-800"
             >
               Password
             </Label>
@@ -77,7 +77,7 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
                 required
                 minLength={8}
                 maxLength={100}
-                className="appearance-none rounded-full relative block w-full px-3 py-2 border border-gray-600 placeholder-gray-300 text-white bg-gray-800 focus:outline-none focus:ring-cyan-200 focus:border-cyan-200 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-full relative block w-full px-3 py-2 border border-gray-600 placeholder-gray-300 text-black bg-gray-300 focus:outline-none focus:ring-black focus:border-gray-800 focus:z-10 sm:text-sm"
                 placeholder="Enter your password"
               />
             </div>
@@ -90,7 +90,7 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
           <div>
             <Button
               type="submit"
-              className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-200"
+              className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-black bg-gray-400 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-200"
               disabled={pending}
             >
               {pending ? (
@@ -109,7 +109,7 @@ export function Login({ mode = 'signin' }: { mode?: 'signin' | 'signup' }) {
 
         <div className="mt-6">
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 text-gray-300">
+              <span className="px-2 text-gray-700">
                 {mode === 'signin'
                   ? 'New to our platform?'
                   : 'Already have an account?'}

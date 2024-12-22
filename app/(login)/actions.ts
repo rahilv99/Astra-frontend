@@ -68,7 +68,7 @@ export const signIn = validatedAction(signInSchema, async (data, formData) => {
     return createCheckoutSession({ priceId });
   }
 
-  redirect('/dashboard');
+  redirect('/dashboard/pulse');
 });
 
 const signUpSchema = z.object({

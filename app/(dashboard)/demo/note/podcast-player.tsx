@@ -4,7 +4,7 @@ import { AudioLines } from 'lucide-react'
 
 export function PodcastPlayer() {
   return (
-    <Card className="w-full bg-white bg-opacity-10 text-white mt-6 border-none">
+    <Card className="w-full bg-black bg-opacity-10 text-black mt-6 border-none">
       <CardHeader>
         <div className="flex items-center space-x-3">
           <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
