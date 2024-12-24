@@ -58,7 +58,7 @@ async function seed() {
 
   console.log('Initial user created.');
 
-  //await createStripeProducts();
+  await createStripeProducts();
 }
 
 seed()

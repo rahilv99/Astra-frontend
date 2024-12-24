@@ -3,11 +3,7 @@ import {
   serial,
   varchar,
   text,
-  timestamp,
-  integer,
 } from 'drizzle-orm/pg-core';
-import { relations } from 'drizzle-orm';
-
 
 // update 0000_soft_the_anarchist.sql
 export const users = pgTable('users', {

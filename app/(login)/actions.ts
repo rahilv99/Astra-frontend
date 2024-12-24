@@ -22,7 +22,7 @@ import { mock_getUserById, mock_getUserByEmail, mock_createUser, mock_deleteUser
 
 // BACKEND - replace methods with database calls
 
-const useMockData = process.env.USE_MOCK_DATA === "TRUE";
+const useMockData = process.env.USE_MOCK_DATA === "FALSE";
 
 const signInSchema = z.object({
   email: z.string().email().min(3).max(255),
