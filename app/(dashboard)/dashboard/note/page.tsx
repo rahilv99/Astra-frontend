@@ -9,6 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { PlusCircle, X, Edit2, Podcast, Check } from 'lucide-react'
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
+import { ComingSoonWrapper } from "@/components/ComingSoonWrapper"  
 
 // Mock data
 const mockNotes = [
@@ -86,6 +87,7 @@ const toggleNoteSelection = (id: number) => {
   }
 
   return (
+    //<ComingSoonWrapper demo = '/demo/note'>
     <div className="space-y-6">
       <h1 className="text-3xl font-bold tracking-tight text-black">Notes</h1>
       <p className="text-black">Get a daily podcast of everything you're curious about.</p>
@@ -191,6 +193,7 @@ const toggleNoteSelection = (id: number) => {
         </Card>
       </div>
     </div>
+    //</ComingSoonWrapper>
   )
 }
 

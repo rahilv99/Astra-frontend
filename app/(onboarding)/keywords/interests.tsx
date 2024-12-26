@@ -3,9 +3,10 @@ import { Button } from '@/components/ui/button';
 import { redirect } from 'next/navigation';
 import { Textarea } from "@/components/ui/textarea"
 import { useState } from 'react';
+import { submitInterests } from '@/lib/actions';
 
 
-export function Interests({ role = 'researcher' }: { role? : 'researcher' | 'student' | 'clinician' | 'other' }) {
+export function Interests() {
   // we store roles right now because we may want to display a more complex page to professionals in the future
     const [keywords, setKeywords] = useState<string>(''); // State to store textarea input
 
@@ -15,7 +16,9 @@ export function Interests({ role = 'researcher' }: { role? : 'researcher' | 'stu
 
     const handleSubmit = () => {
       // BACKEND - send the keywords to database
-        console.log("Keywords:", keywords); // Access the textarea value
+      
+        console.log("Keywords:", keywords); 
+        submitInterests(keywords);
         redirect('/day'); // Perform redirection
     };
     
@@ -52,7 +55,7 @@ export function Interests({ role = 'researcher' }: { role? : 'researcher' | 'stu
 
             </div>
             <div className = 'flex justify-end py-5'>
-            <Button onClick={handleSubmit} className="mt-4 bg-black text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-500 transition duration-300">
+            <Button onClick={handleSubmit} className="mt-4 bg-gray-800 text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-600 transition duration-300">
               Submit
             </Button>
             </div>

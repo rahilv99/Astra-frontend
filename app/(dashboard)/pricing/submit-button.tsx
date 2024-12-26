@@ -12,8 +12,8 @@ export function SubmitButton({ currentPlan }: { currentPlan?: boolean }) {
 
   const handleClick = () => {
     if (currentPlan) {
-      // add free plan to user data
-      redirect('/dashboard/research');
+
+      redirect('/dashboard/pulse');
     }
   };
 
@@ -22,7 +22,7 @@ export function SubmitButton({ currentPlan }: { currentPlan?: boolean }) {
       type="submit"
       disabled={pending}
       onClick={currentPlan ? handleClick : undefined}
-      className="w-full bg-gray-300 text-black border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-500 transition duration-300"
+      className="w-full bg-gray-800 hover:bg-gray-600 text-white border border-gray-200 rounded-full flex items-center justify-center transition duration-300"
     >
       {pending ? (
       <>

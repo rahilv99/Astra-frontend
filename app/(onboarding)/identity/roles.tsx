@@ -2,10 +2,15 @@
 "use client";
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import { updateUserRole } from '@/lib/actions';
 import { redirect } from 'next/navigation';
 
-
 export  function Roles() {
+  //const [state, formAction, pending] = useActionState<ActionState, FormData>(
+  //    updateUserRole,
+  //    { error: '' }
+  //  );
+
   const designations = ["Student", "Researcher", "Clinician", "Educator", "Professional", "Other"];
   const [selected, setSelected] = useState<string[]>([]);
 
@@ -21,9 +26,8 @@ export  function Roles() {
     );
   };
 
-  const handleSubmit = () => {
-    console.log("Selected designations:", selected);
-    // BACKEND - send the selected designations to database
+  const handleSubmit = async () => {
+    await updateUserRole(selected);
 
     redirect('/keywords');
   };
@@ -45,23 +49,25 @@ export  function Roles() {
         </div>
     </section>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2">
             {designations.map((designation) => (
-            <Button
-                className={`${selected.includes(designation) ? 'bg-gray-400 hover:bg-black border border-gray-500' : 'bg-black hover:bg-gray-400 border-gray-500'} text-black rounded-full text-xl px-10 py-5 inline-flex items-center justify-center`}
+              <Button
+                className={`${selected.includes(designation) ? 'bg-gray-600 hover:bg-800 hover:border-black hover:border-3' : 'bg-gray-800 hover:bg-gray-600 hover:border-black hover:border-5'} text-white rounded-full text-xl px-10 py-5 inline-flex items-center justify-center`}
                 key={designation}
                 onClick={() => toggleSelection({ designation })}
-                variant={selected.includes(designation) ? "default" : "outline"}
-            >
+              >
                 {designation}
-            </Button>
+              </Button>
             ))}
-        </div>
-        <div className = 'flex justify-end py-5'>
-        <Button onClick={handleSubmit} className="mt-4 bg-black text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-500 transition duration-300">
-          Submit
-        </Button>
-        </div>
+          </div>
+          <div className="flex justify-end py-5">
+            <Button 
+              className="mt-4 bg-gray-800 text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-600 transition duration-300"
+              type = "submit"
+              onClick = {handleSubmit}>
+                Submit
+            </Button>
+          </div>
     </div>
 
     </main>

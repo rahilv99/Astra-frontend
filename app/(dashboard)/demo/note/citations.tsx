@@ -25,7 +25,7 @@ export function Citations() {
     <Card className="w-full bg-black bg-opacity-10 text-black mt-6 border-none">
       <CardHeader>
         <CardTitle className="text-2xl">Learn More: Citations and Sources</CardTitle>
-        <CardDescription className="text-gray-200">
+        <CardDescription className="text-gray-800">
           Explore these resources to dive deeper into today's topics.
         </CardDescription>
       </CardHeader>

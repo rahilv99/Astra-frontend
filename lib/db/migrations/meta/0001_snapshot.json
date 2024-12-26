@@ -1,6 +1,6 @@
 {
-  "id": "6c563317-ec40-4a4a-9b8f-e0ea07feb83a",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "c9d8792d-55cc-4b94-8345-ed8b56a814d0",
+  "prevId": "8832ed47-1b5a-46e1-b8f4-acf324110c2b",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -20,9 +20,9 @@
           "primaryKey": false,
           "notNull": true
         },
-        "password": {
-          "name": "password",
-          "type": "varchar(255)",
+        "password_hash": {
+          "name": "password_hash",
+          "type": "text",
           "primaryKey": false,
           "notNull": true
         },
@@ -30,13 +30,28 @@
           "name": "name",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
-        "delivery_day": {
-          "name": "delivery_day",
-          "type": "varchar(50)",
+        "deliveryDay": {
+          "name": "deliveryDay",
+          "type": "integer",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "default": 1
+        },
+        "delivered": {
+          "name": "delivered",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "active": {
+          "name": "active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
         },
         "keywords": {
           "name": "keywords",
@@ -44,30 +59,12 @@
           "primaryKey": false,
           "notNull": true
         },
-        "extended_keywords": {
-          "name": "extended_keywords",
-          "type": "jsonb",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "keyword_embeddings": {
-          "name": "keyword_embeddings",
-          "type": "jsonb",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "extended_keyword_embeddings": {
-          "name": "extended_keyword_embeddings",
-          "type": "jsonb",
-          "primaryKey": false,
-          "notNull": false
-        },
         "role": {
           "name": "role",
           "type": "varchar(20)",
           "primaryKey": false,
           "notNull": true,
-          "default": "'other'"
+          "default": "'Other'"
         },
         "stripe_customer_id": {
           "name": "stripe_customer_id",
@@ -91,7 +88,8 @@
           "name": "plan",
           "type": "varchar(50)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "default": "'free'"
         }
       },
       "indexes": {},

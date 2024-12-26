@@ -8,16 +8,14 @@ const jobs = [
       "Experience with NLP models",
       "Strong understanding of data science and engineering",
       "At least 1 year of hands-on experience (projects, research, or internship)",
-      "Ability to work long hours and weekends",
     ],
   },
   {
     title: "Founding Member (CTO)",
     qualifications: [
       "Experience with fullstack and app development",
-      "Strong understanding of frontend, databases, and cloud services",
+      "Strong understanding of frontend, databases, and DevOps",
       "At least 1 year of hands-on experience (projects, research, or internship)",
-      "Ability to work long hours and weekends",
     ],
   },
 ];

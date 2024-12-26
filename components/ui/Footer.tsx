@@ -15,7 +15,7 @@ export function Footer() {
                 placeholder="Enter your email"
                 className="w-full px-4 py-2 rounded-xl bg-black bg-opacity-10 border border-gray-800 focus:outline-none focus:ring-2 focus:ring-black"
               />
-              <Button type="submit" className="w-full bg-gray-400 hover:bg-gray-500 transition duration-300 text-black rounded-xl">
+              <Button type="submit" className="w-full bg-gray-800 hover:bg-gray-600 text-white transition duration-300 rounded-xl">
                 Submit
               </Button>
             </form>

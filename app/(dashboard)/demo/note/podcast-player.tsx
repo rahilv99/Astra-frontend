@@ -14,7 +14,7 @@ export function PodcastPlayer() {
         </div>
       </CardHeader>
       <CardContent>
-        <CardDescription className="mb-6 text-lg text-gray-200">
+        <CardDescription className="mb-6 text-lg text-gray-800">
           In this episode, we explore the latest developments in Artificial Intelligence, 
           the ongoing efforts to combat Climate Change, and recent breakthroughs in Space Exploration. 
           We've curated insights based on your notes and interests.

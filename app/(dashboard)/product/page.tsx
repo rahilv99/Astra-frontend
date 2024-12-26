@@ -17,7 +17,7 @@ const products = [
         id: 'pulse',
         name: 'Pulse',
         description: 'A personalized podcast summarizing the latest updates in your field. All content includes citations to academic sources.',
-        demo: '/demo/research/updates'
+        demo: '/demo/pulse'
       }
     ]
   },
@@ -28,10 +28,10 @@ const products = [
     description: 'Apply Astra models to your documents to gain deeper insights in less time.',
     subProducts: [
       {
-        id: 'journalClub',
-        name: 'Journal Club',
+        id: 'insight',
+        name: 'Insight',
         description: 'Want your podcast to be about something in particular? Queue up scientific papers or topics, and get expert summaries and analysis.',
-        demo: '/demo/research/journal-club'
+        demo: '/demo/insight'
       }
     ]
     },
@@ -52,7 +52,7 @@ const products = [
 ]
 
 export default function ProductsPage() {
-  const [activeTab, setActiveTab] = useState('Research')
+  const [activeTab, setActiveTab] = useState('Pulse')
 
   return (
     <div className="min-h-screen text-black flex flex-col">
@@ -65,7 +65,7 @@ export default function ProductsPage() {
               <TabsTrigger
                 key={product.id}
                 value={product.id}
-                className="flex items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-xs sm:px-6 sm:py-3 sm:text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-opacity-10 data-[state=active]:bg-gray-800 data-[state=active]:text-black data-[state=active]:shadow-sm data-[state=active]:bg-gray-800 relative"
+                className="flex items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-xs sm:px-6 sm:py-3 sm:text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-opacity-20 data-[state=active]:bg-gray-800 data-[state=active]:text-black data-[state=active]:shadow-sm data-[state=active]:bg-gray-800 relative"
               >
                 {product.name}
               </TabsTrigger>
@@ -101,7 +101,7 @@ export default function ProductsPage() {
                             <p className="text-lg mb-4">{subProduct.description}</p>
                             {
                             <Link href={subProduct.demo || '/product'} passHref>
-                              <Button className="bg-gray-400 font-semibold hover:bg-gray-500 text-black rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
+                              <Button className="bg-gray-800 font-semibold hover:bg-gray-600 text-white rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
                               Demo
                               </Button>
                             </Link>

@@ -19,7 +19,7 @@ export default function HomePage() {
               </p>
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-center lg:mx-auto">
                 <Link href="/product">
-                  <Button className="bg-gray-300 hover:bg-gray-400 transition duration-300 font-semibold text-black rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
+                  <Button className="bg-gray-800 hover:bg-gray-600 text-white transition duration-300 font-semibold rounded-full text-lg px-8 py-8 inline-flex items-center justify-center">
                     Products
                   </Button>
                 </Link>
@@ -97,7 +97,7 @@ export default function HomePage() {
                 href='/pricing'
                 target="_blank"
               >
-                <Button className="bg-gray-300 hover:bg-gray-400 transition duration-300 text-black rounded-full text-xl px-12 py-6 inline-flex items-center justify-center">
+                <Button className="bg-gray-800 hover:bg-gray-600 text-white transition duration-300 rounded-full text-xl px-12 py-6 inline-flex items-center justify-center">
                   View Plans
                   <ArrowRight className="ml-3 h-6 w-6" />
                 </Button>

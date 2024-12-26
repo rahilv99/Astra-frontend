@@ -51,9 +51,11 @@ export function ContactForm() {
           className="bg-black bg-opacity-10 border-gray-800 text-black placeholder-cyan-300 min-h-[150px]"
         />
       </div>
-      <Button type="submit" className="w-full bg-gray-800 hover:bg-gray-400 text-black rounded-xl">
-        Send
-      </Button>
+      <div className="flex justify-end">
+        <Button type="submit" className="bg-gray-800 hover:bg-gray-600 text-white rounded-xl">
+          Send
+        </Button>
+      </div>
     </form>
   )
 }

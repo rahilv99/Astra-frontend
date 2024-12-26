@@ -10,16 +10,17 @@ import {
 } from "@/components/ui/carousel";
 import { type CarouselApi } from "@/components/ui/carousel";
 import React from "react";
+import { submitDay } from "@/lib/actions";
 
 export function Delivery() {
   const days = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday",
   ];
 
   const [api, setApi] = React.useState<CarouselApi>();
@@ -34,14 +35,12 @@ export function Delivery() {
 
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
-      const ret = api.selectedScrollSnap();
-      console.log("Current day:", days[ret]);
     });
   }, [api]);
 
-  const handleSubmit = () => {
-    // BACKEND - replace with sending to database
-    console.log("Selected day:", days[current]);
+  const handleSubmit = async () => {
+    await submitDay(current);
+    
     redirect("/pricing");
   };
 
@@ -54,7 +53,7 @@ export function Delivery() {
                   <h1 className="text-3xl font-bold text-black mb-6 sm:text-4xl">
                     What day would you like your weekly podcast delivered?
                   </h1>
-                  <p className="mt-4 text-base text-gray-200">
+                  <p className="mt-4 text-base text-gray-700">
                     Our free plan offers one short podcast per week.
                     Upgrade your plan to get more podcasts and access to more features.
                   </p>
@@ -94,7 +93,7 @@ export function Delivery() {
               </Carousel>
             </div>
             <div className="flex justify-end py-5">
-              <Button onClick={handleSubmit} className="mt-4 bg-black text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-500 transition duration-300">
+              <Button onClick={handleSubmit} className="mt-4 bg-gray-800 text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-600 transition duration-300">
                 Submit
               </Button>
             </div>

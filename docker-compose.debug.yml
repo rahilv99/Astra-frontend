@@ -28,7 +28,7 @@ services:
       - astra-net
 
   db:
-    image: postgres:17-alpine
+    image: postgres:16-alpine
     container_name: postgres_db
     ports:
       - "5432:5432"

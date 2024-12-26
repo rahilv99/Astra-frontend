@@ -9,6 +9,7 @@ import { PenIcon, Check, Upload, Pencil, Trash2 } from 'lucide-react'
 import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
 import { Separator } from "@/components/ui/separator"
+import { ComingSoonWrapper } from "@/components/ComingSoonWrapper"
 
 // Mock data
 const mockJournalClubData = {
@@ -82,6 +83,7 @@ export default function JournalClubPage() {
   }
 
   return (
+    //<ComingSoonWrapper demo = '/demo/insight'>
     <div className="space-y-6">
       <h1 className="text-3xl font-bold tracking-tight text-black">Insight</h1>
       <p className="text-black">Listen to expert analyses of your documents and their applications to your interests.</p>
@@ -179,6 +181,7 @@ export default function JournalClubPage() {
         </CardContent>
       </Card>
     </div>
+    //</ComingSoonWrapper>
   )
 }
 

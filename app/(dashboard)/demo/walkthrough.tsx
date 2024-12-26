@@ -1,49 +1,85 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { PenLine, AudioLines, BrainCog, CircleIcon } from "lucide-react";
-import { Pagination } from "@/components/ui/pagination";
-import { PodcastPlayer } from "./podcast-player";
-import { Citations } from "./citations";
-import { AnimatedTopics } from "./animated-topics";
+import React, { useState } from "react"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { motion, AnimatePresence } from "framer-motion"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Pagination } from "@/components/ui/pagination"
+import { AudioLines, BrainCog, CircleIcon, Fingerprint, BadgeIcon as IdCard } from 'lucide-react'
 
-const steps = [
-  {
-    icon: <PenLine className="w-6 h-6" />,
-    title: "Jot Down Topics",
-    content: "Write down topics of interest throughout your day.",
-    prompt: "AstraNote Editor",
-  },
-  {
-    icon: <BrainCog className="w-6 h-6" />,
-    title: "Astra Analysis",
-    content: "Astra processes your notes and generates insights.",
-    prompt: "Astra is analyzing your topics and preparing content...",
-  },
-  {
-    icon: <AudioLines className="w-6 h-6" />,
-    title: "Mini Podcast Generation",
-    content: "A personalized mini podcast is created by the end of the day.",
-    prompt:
-      "Your podcast is being generated with the latest information and insights.",
-  },
-];
 
-export default function NotesDemo() {
-  const [currentStep, setCurrentStep] = useState(0);
+interface Step {
+  icon: React.ReactNode;
+  title: string;
+  content: string;
+  prompt: string;
+}
+
+interface AIPodcastWalkthroughProps {
+  steps: Step[];
+  product: string;
+}
+
+export default function AIPodcastWalkthrough({ steps, product }: AIPodcastWalkthroughProps) {
+  const [currentStep, setCurrentStep] = useState<number>(0);
+
+  let PodcastPlayer = () => <></>;
+
+  if (product === 'insight') {
+    PodcastPlayer = () => (
+      <Card className="w-full bg-black bg-opacity-10 text-black mt-6 border-none">
+        <CardHeader>
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+              <AudioLines className="w-6 h-6 text-primary-foreground" />
+            </div>
+            <CardTitle className="text-2xl">Recent Advances in Quantum Computing</CardTitle>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <CardDescription className="mb-6 text-lg text-gray-800">
+            In this episode, we discuss a recent paper on quantum computing and its potential applications in cryptography. 
+            We explore how these advancements might impact your work in network security and data protection.
+          </CardDescription>
+          <div className="p-4 flex items-center space-x-4">
+            <audio controls className="w-full">
+              <source src="/demo-podcast.mp3" type="audio/mp3" />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </CardContent>
+      </Card>
+    )
+  } else {
+    PodcastPlayer = () => (
+      <Card className="w-full bg-black bg-opacity-10 text-black mt-6 border-none">
+        <CardHeader>
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+              <AudioLines className="w-6 h-6 text-primary-foreground" />
+            </div>
+            <CardTitle className="text-2xl">Recent Advances in Quantum Computing</CardTitle>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <CardDescription className="mb-6 text-lg text-gray-800">
+            In this episode, we discuss a recent paper on quantum computing and its potential applications in cryptography. 
+            We explore how these advancements might impact your work in network security and data protection.
+          </CardDescription>
+          <div className="p-4 flex items-center space-x-4">
+            <audio controls className="w-full">
+              <source src="/demo-podcast.mp3" type="audio/mp3" />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
-    <div className="container mx-auto py-6">
+    <div className="container mx-auto py-12">
       <Tabs defaultValue="setup" className="w-full">
         <TabsList className="grid w-full grid-cols-2 mx-auto h-14 rounded-lg bg-black bg-opacity-10 p-1 text-gray-800">
           <TabsTrigger
@@ -68,14 +104,11 @@ export default function NotesDemo() {
             transition={{ duration: 0.3 }}
           >
             <TabsContent value="setup">
-              <Card className="bg-black bg-opacity-10 text-black mt-6 border-none">
+              <Card className="bg-black bg-opacity-10 text-black border-none mt-6">
                 <CardHeader>
-                  <CardTitle>
-                    Astra Notes: Your Personal Knowledge Assistant
-                  </CardTitle>
+                  <CardTitle>Updates Podcast Setup</CardTitle>
                   <CardDescription className="text-gray-800">
-                    Discover how Astra Notes transforms your ideas into
-                    personalized audio content.
+                    Follow the steps to set up your personalized podcast.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -93,10 +126,10 @@ export default function NotesDemo() {
                         </p>
                       </div>
                     </div>
-                    <Card className="bg-black bg-opacity-10 text-black border-none">
-                      <CardContent className="pt-6">
-                        <p className="mb-4">{steps[currentStep].prompt}</p>
-                        {currentStep === 0 && <AnimatedTopics />}
+                    <Card className="bg-gray-500 bg-opacity-10 text-black border-none">
+                      <CardContent className="pt-6 flex items-center space-x-4">
+                        <CircleIcon className="w-8 h-8 text-gray-700" />
+                        <p>{steps[currentStep].prompt}</p>
                       </CardContent>
                     </Card>
                     <Pagination className="flex justify-between">
@@ -129,9 +162,9 @@ export default function NotesDemo() {
         </AnimatePresence>
         <TabsContent value="result">
           <PodcastPlayer />
-          <Citations />
         </TabsContent>
       </Tabs>
     </div>
   );
 }
+

@@ -27,7 +27,7 @@ import {  AlertDialog,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { signOut } from '@/app/(login)/actions';
+import { signOut, deleteAccount } from '@/lib/actions';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/lib/auth';
 
@@ -41,22 +41,12 @@ const deleteAccountFormSchema = z.object({
 
 type DeleteAccountFormValues = z.infer<typeof deleteAccountFormSchema>
 
-// This can be replaced with actual API call
-const deleteAccount = async () => {
-  // Simulating API call
-  await new Promise(resolve => setTimeout(resolve, 1000))
-  console.log("Mock data sent to backend: Account deletion request")
-  return true
-}
-
 export function DeleteAccountForm() {
   const { user, setUser } = useUser();
-  const router = useRouter();
 
   async function handleSignOut() {
     setUser(null);
     await signOut();
-    router.push('/');
   }
 
   const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -75,7 +65,6 @@ export function DeleteAccountForm() {
         title: "Account Deleted",
         description: "Your account has been permanently deleted.",
       })
-      router.push('/');
       setIsDialogOpen(false)
     } catch (error) {
       toast({

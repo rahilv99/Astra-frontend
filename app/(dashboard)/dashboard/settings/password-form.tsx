@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/hooks/use-toast"
+import { updatePassword } from "@/lib/actions"
 
 const passwordFormSchema = z.object({
   currentPassword: z.string().min(8, {
@@ -34,14 +35,6 @@ const passwordFormSchema = z.object({
 
 type PasswordFormValues = z.infer<typeof passwordFormSchema>
 
-// This can be replaced with actual API call
-const updatePassword = async (data: PasswordFormValues) => {
-  // Simulating API call
-  await new Promise(resolve => setTimeout(resolve, 1000))
-  console.log("Mock data sent to backend:", data)
-  return data
-}
-
 export function PasswordForm() {
   const form = useForm<PasswordFormValues>({
     resolver: zodResolver(passwordFormSchema),
@@ -54,7 +47,7 @@ export function PasswordForm() {
 
   async function onSubmit(data: PasswordFormValues) {
     try {
-      await updatePassword(data)
+      await updatePassword(data);
       toast({
         title: "Password updated",
         description: "Your password has been updated successfully.",

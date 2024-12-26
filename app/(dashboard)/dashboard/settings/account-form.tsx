@@ -16,16 +16,9 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/hooks/use-toast"
+import { updateEmail } from "@/lib/actions"
 
 const accountFormSchema = z.object({
-  name: z
-    .string()
-    .min(2, {
-      message: "Name must be at least 2 characters.",
-    })
-    .max(30, {
-      message: "Name must not be longer than 30 characters.",
-    }),
   email: z
     .string({
       required_error: "Please enter an email address.",
@@ -35,26 +28,17 @@ const accountFormSchema = z.object({
 
 type AccountFormValues = z.infer<typeof accountFormSchema>
 
-// This can be replaced with actual API call
-const updateAccount = async (data: AccountFormValues) => {
-  // Simulating API call
-  await new Promise(resolve => setTimeout(resolve, 1000))
-  console.log("Mock data sent to backend:", data)
-  return data
-}
-
 export function AccountForm() {
   const form = useForm<AccountFormValues>({
     resolver: zodResolver(accountFormSchema),
     defaultValues: {
-      name: "",
       email: "",
     },
   })
 
   async function onSubmit(data: AccountFormValues) {
     try {
-      const result = await updateAccount(data)
+      const result = await updateEmail(data.email);
       toast({
         title: "Account updated",
         description: "Your account information has been updated successfully.",
@@ -73,22 +57,6 @@ export function AccountForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <FormField
           control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Your name" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is the name that will be displayed on your profile.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
@@ -97,7 +65,7 @@ export function AccountForm() {
                 <Input placeholder="Your email" {...field} />
               </FormControl>
               <FormDescription>
-                This email will be used for account-related notifications.
+                This is the eamil your Astra podcasts are sent to.
               </FormDescription>
               <FormMessage />
             </FormItem>

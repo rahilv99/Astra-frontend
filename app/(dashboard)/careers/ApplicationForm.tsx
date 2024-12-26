@@ -94,7 +94,7 @@ export function ApplicationForm() {
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-gray-800 hover:bg-gray-400 text-black rounded-xl"
+        className="w-full bg-gray-800 hover:bg-gray-600 text-white rounded-xl"
       >
         {isSubmitting ? 'Sending...' : 'Apply'}
       </Button>
