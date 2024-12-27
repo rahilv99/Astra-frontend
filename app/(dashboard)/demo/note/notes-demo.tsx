@@ -22,13 +22,13 @@ const steps = [
     icon: <PenLine className="w-6 h-6" />,
     title: "Jot Down Topics",
     content: "Write down topics of interest throughout your day.",
-    prompt: "AstraNote Editor",
+    prompt: "AuxiomNote Editor",
   },
   {
     icon: <BrainCog className="w-6 h-6" />,
-    title: "Astra Analysis",
-    content: "Astra processes your notes and generates insights.",
-    prompt: "Astra is analyzing your topics and preparing content...",
+    title: "Auxiom Analysis",
+    content: "Auxiom processes your notes and generates insights.",
+    prompt: "Auxiom is analyzing your topics and preparing content...",
   },
   {
     icon: <AudioLines className="w-6 h-6" />,
@@ -71,10 +71,10 @@ export default function NotesDemo() {
               <Card className="bg-black bg-opacity-10 text-black mt-6 border-none">
                 <CardHeader>
                   <CardTitle>
-                    Astra Notes: Your Personal Knowledge Assistant
+                    Auxiom Notes: Your Personal Knowledge Assistant
                   </CardTitle>
                   <CardDescription className="text-gray-800">
-                    Discover how Astra Notes transforms your ideas into
+                    Discover how Auxiom Notes transforms your ideas into
                     personalized audio content.
                   </CardDescription>
                 </CardHeader>

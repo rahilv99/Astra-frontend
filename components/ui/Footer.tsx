@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CircleIcon } from 'lucide-react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 export function Footer() {
@@ -24,8 +24,13 @@ export function Footer() {
           
           <div className="space-y-6 md:pl-8">
             <div className="flex items-center">
-              <CircleIcon className="h-8 w-8 text-gray-700" />
-              <span className="ml-2 text-2xl font-semibold">ASTRA</span>
+              <Image 
+                src="/logo.svg" 
+                alt="Company Logo" 
+                width={40}
+                height={40}
+              />
+              <span className="ml-2 text-2xl font-semibold">AUXIOM</span>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <Link href="/about" className="hover:text-gray-600 transition-colors">About</Link>
@@ -37,7 +42,7 @@ export function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-center text-sm text-gray-500">
-            © {new Date().getFullYear()} ASTRA. All rights reserved.
+            © {new Date().getFullYear()} AUXIOM. All rights reserved.
           </p>
         </div>
       </div>

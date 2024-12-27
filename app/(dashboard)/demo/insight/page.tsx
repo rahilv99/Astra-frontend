@@ -18,9 +18,9 @@ export default function Home() {
     },
     {
       icon: <BrainCog className="w-6 h-6" />,
-      title: "Astra Analysis",
-      content: "Astra selects an article and generates an expert analysis.",
-      prompt: "Astra is analyzing the uploaded articles and generating insights..."
+      title: "Auxiom Analysis",
+      content: "Auxiom selects an article and generates an expert analysis.",
+      prompt: "Auxiom is analyzing the uploaded articles and generating insights..."
     },
   ]
 

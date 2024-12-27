@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: astra_app
+    container_name: auxiom_app
     ports:
       - "3000:3000"
     volumes:
@@ -25,7 +25,7 @@ services:
       npm run dev
       "
     networks:
-      - astra-net
+      - auxiom-net
 
   db:
     image: postgres:16-alpine
@@ -39,10 +39,10 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - astra-net
+      - auxiom-net
 
 volumes:
   postgres_data:
 
 networks:
-  astra-net:
+  auxiom-net:

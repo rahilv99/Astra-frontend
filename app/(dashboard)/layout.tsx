@@ -1,33 +1,30 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CircleIcon, Gem, LayoutDashboard} from 'lucide-react';
+import { Gem, LayoutDashboard} from 'lucide-react';
 import { useUser } from '@/lib/auth';
-import { signOut } from '@/lib/actions';
-import { useRouter } from 'next/navigation';
 import { ActionLink } from '@/components/ui/action-link';
 import { Footer } from '@/components/ui/Footer';
 import { Toaster } from '@/components/ui/toaster';
+import Image from 'next/image';
+
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, setUser } = useUser();
-  const router = useRouter();
-
-  async function handleSignOut() {
-    setUser(null);
-    await signOut();
-    router.push('/');
-  }
 
   return (
     <header >
       <div className="max-w-7xl mx-auto px-4 sm:px-2 lg:px-8 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <CircleIcon className="h-8 w-8 text-gray-700" />
-          <span className="ml-2 text-3xl font-semibold text-black">ASTRA</span>
+          {/*Insert logo.svg from public folder */}
+          <Image 
+            src="/logo.svg" 
+            alt="Company Logo" 
+            width={50}
+            height={50}
+          />
+          <span className="ml-2 text-4xl font-semibold text-black">AUXIOM</span>
         </Link>
         <div className="flex items-center space-x-4 ">
         <ActionLink href="/pricing" icon={Gem}>

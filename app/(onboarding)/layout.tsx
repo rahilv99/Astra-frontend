@@ -10,6 +10,7 @@ import {
 import { CircleIcon } from "lucide-react";
 import { redirect } from "next/navigation";
 import React, { useState } from "react";
+import Image from "next/image";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -46,8 +47,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="flex h-screen flex-col md:flex-col md:overflow-hidden">
       <header>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center">
-          <CircleIcon className="h-8 w-8 text-gray-600" />
-          <span className="ml-2 text-3xl text-black">Onboarding</span>
+          <Image 
+            src="/logo.svg" 
+            alt="Company Logo" 
+            width={50}
+            height={50}
+          />
+          <span className="ml-2 text-4xl text-black">Onboarding</span>
         </div>
       </header>
       <div className="flex-grow p-6 overflow-y-auto md:p-12">{children}</div>

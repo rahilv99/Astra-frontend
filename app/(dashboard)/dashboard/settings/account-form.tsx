@@ -65,7 +65,7 @@ export function AccountForm() {
                 <Input placeholder="Your email" {...field} />
               </FormControl>
               <FormDescription>
-                This is the eamil your Astra podcasts are sent to.
+                This is the eamil your Auxiom podcasts are sent to.
               </FormDescription>
               <FormMessage />
             </FormItem>

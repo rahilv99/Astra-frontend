@@ -23,7 +23,7 @@ export function ApplicationForm() {
       await sendApplication(name, email, position, message)
       toast({
         title: "Application sent",
-        description: "Thank you for your interest in joining Astra!",
+        description: "Thank you for your interest in joining Auxiom!",
       })
       setName('')
       setEmail('')

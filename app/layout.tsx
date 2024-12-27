@@ -5,7 +5,7 @@ import { UserProvider } from '@/lib/auth';
 import { getUser } from '@/lib/db/queries';
 
 export const metadata: Metadata = {
-  title: 'Astra',
+  title: 'Auxiom',
   description: 'More learning. Less time.'
 };
 

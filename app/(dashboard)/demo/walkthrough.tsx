@@ -6,7 +6,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Pagination } from "@/components/ui/pagination"
-import { AudioLines, BrainCog, CircleIcon, Fingerprint, BadgeIcon as IdCard } from 'lucide-react'
+import { AudioLines } from 'lucide-react'
+import Image from "next/image"
 
 
 interface Step {
@@ -128,7 +129,12 @@ export default function AIPodcastWalkthrough({ steps, product }: AIPodcastWalkth
                     </div>
                     <Card className="bg-gray-500 bg-opacity-10 text-black border-none">
                       <CardContent className="pt-6 flex items-center space-x-4">
-                        <CircleIcon className="w-8 h-8 text-gray-700" />
+                        <Image 
+                          src="/logo.svg" 
+                          alt="Company Logo" 
+                          width={40}
+                          height={40}
+                        />
                         <p>{steps[currentStep].prompt}</p>
                       </CardContent>
                     </Card>

@@ -47,7 +47,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold">Our Motivation</h2>
           </div>
           <p className="text-xl">
-            We believe that education is a fundamental human right. Astra aims to be accessible to all by
+            We believe that education is a fundamental human right. Auxiom aims to be accessible to all by
             transforming complex academic content into engaging audio experiences.
           </p>
         </CardContent>
@@ -73,7 +73,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6, delay: 1.5 }}
         >
           <Link href='/sign-up' className="h-6 w-6 mr-2">
-          Get Started with Astra
+          Get Started with Auxiom
           </Link>
         </motion.button>
       </div>

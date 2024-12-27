@@ -25,7 +25,7 @@ const products = [
     id: 'Insight',
     name: 'Insight',
     tagline: 'The Best Morning Routine Since Coffee',
-    description: 'Apply Astra models to your documents to gain deeper insights in less time.',
+    description: 'Apply Auxiom models to your documents to gain deeper insights in less time.',
     subProducts: [
       {
         id: 'insight',

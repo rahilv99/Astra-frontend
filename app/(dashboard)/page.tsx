@@ -10,11 +10,11 @@ export default function HomePage() {
           <div className="lg:grid lg:grid-cols lg:gap-8">
             <div className="text-center md:max-w-2xl md:mx-auto lg:col-span-6 ">
               <h1 className="text-4xl font-bold text-black tracking-tight sm:text-5xl md:text-6xl">
-                Astra.
+                Auxiom.
                 <span className="block text-gray-700">Smarter Content</span>
               </h1>
               <p className="mt-3 text-base text-gray-700 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                Spend less time searching and more time learning. Astra brings all the newest
+                Spend less time searching and more time learning. Auxiom brings all the newest
                 advancements in your field to you.  
               </p>
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-center lg:mx-auto">
@@ -41,7 +41,7 @@ export default function HomePage() {
                   Premium Data
                 </h2>
                 <p className="mt-2 text-base text-gray-700">
-                  Astra tracks the latest breakthroughs, publications, and major events in your field,
+                  Auxiom tracks the latest breakthroughs, publications, and major events in your field,
                   keeping you informed.
                 </p>
               </div>
@@ -71,7 +71,7 @@ export default function HomePage() {
                   Podcast Generation
                 </h2>
                 <p className="mt-2 text-base text-gray-700">
-                  Astra extracts only the most important information, generating engaging podcast 
+                  Auxiom extracts only the most important information, generating engaging podcast 
                   episodes with our personable hosts.
                 </p>
               </div>
@@ -88,7 +88,7 @@ export default function HomePage() {
                 Curious? Sign up for our free plan.
               </h2>
               <p className="mt-3 max-w-3xl text-lg text-gray-700">
-                Our free plan offers a taste of what Astra can do for you. Sign up today to 
+                Our free plan offers a taste of what Auxiom can do for you. Sign up today to 
                 receive weekly updates on the latest advancements in your field, straight to your inbox. 
               </p>
             </div>

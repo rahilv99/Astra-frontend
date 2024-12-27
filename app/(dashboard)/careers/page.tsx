@@ -23,7 +23,7 @@ const jobs = [
 export default function CareersPage() {
   return (
     <div className="container mx-auto px-8 py-8 max-w-4xl">
-      <h1 className="text-4xl font-bold text-black mb-8 px-4">Careers at Astra</h1>
+      <h1 className="text-4xl font-bold text-black mb-8 px-4">Careers at Auxiom</h1>
       <div className="space-y-8 mb-12">
         {jobs.map((job, index) => (
           <JobListing

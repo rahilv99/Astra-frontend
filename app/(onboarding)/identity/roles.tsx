@@ -39,7 +39,7 @@ export  function Roles() {
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
             <div>
               <h1 className="text-3xl font-bold text-black sm:text-4xl">
-                What brings you to Astra?
+                What brings you to Auxiom?
               </h1>
               <p className="mt-4 text-base text-gray-700">
                 Select as many as apply.
