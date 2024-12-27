@@ -1,5 +1,5 @@
 {
-  "id": "8832ed47-1b5a-46e1-b8f4-acf324110c2b",
+  "id": "5443ce08-a31a-4d48-8d0f-247660ed7caf",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -39,6 +39,20 @@
           "notNull": true,
           "default": 1
         },
+        "delivered": {
+          "name": "delivered",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "active": {
+          "name": "active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
         "keywords": {
           "name": "keywords",
           "type": "jsonb",
@@ -76,6 +90,20 @@
           "primaryKey": false,
           "notNull": true,
           "default": "'free'"
+        },
+        "note": {
+          "name": "note",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'[]'::jsonb"
+        },
+        "active_notes": {
+          "name": "active_notes",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'[]'::jsonb"
         }
       },
       "indexes": {},

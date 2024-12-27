@@ -15,7 +15,8 @@ export const users = pgTable('users', {
   stripeSubscriptionId: text('stripe_subscription_id').unique(),
   stripeProductId: text('stripe_product_id'),
   plan: varchar('plan', { length: 50 }).notNull().default('free'),
-  // Add note column for future expansion
+  notes: jsonb('note').notNull().default([]),
+  activeNotes: jsonb('active_notes').notNull().default([]),
   // insight will use a second table to store pdfs
 });
 
